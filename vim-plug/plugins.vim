@@ -17,5 +17,9 @@ call plug#begin('~/.config/nvim/autoload/plugged')
 	Plug 'nvim-tree/nvim-web-devicons'
 	Plug 'romgrk/barbar.nvim'
 	Plug 'ryanoasis/vim-devicons'
+	Plug 'MarcWeber/vim-addon-mw-utils'
+	Plug 'tomtom/tlib_vim'
+	Plug 'garbas/vim-snipmate'
+	Plug 'honza/vim-snippets'
 call plug#end()
 
