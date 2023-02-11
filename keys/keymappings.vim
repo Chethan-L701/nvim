@@ -24,7 +24,4 @@ nnoremap <F19> :tabnew
 inoremap <C-s> <Esc>:w<CR>i
 inoremap <C-M-q> <Esc>:wq<CR>i
 
-inoremap <F2> <C-x><C-o>
-
-
-
+inoremap <S-TAB> <C-x><C-o>
