@@ -21,7 +21,7 @@ set t_Co=256_
 set clipboard=unnamedplus
 
 filetype plugin on
-set omnifunc=syntaxcomplete#Complete
+set omnifunc=v:lua.vim.lsp.omnifunc
 
 let g:airline_powerline_fonts=1
 

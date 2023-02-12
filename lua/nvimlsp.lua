@@ -1,5 +1,4 @@
 require'lspconfig'.pyright.setup{}
-require'lspconfig'.java_language_server.setup{}
 local opts = { noremap=true, silent=true }
 vim.keymap.set('n', '<space>e', vim.diagnostic.open_float, opts)
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, opts)
@@ -31,3 +30,25 @@ local on_attach = function(client, bufnr)
   vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
   vim.keymap.set('n', '<space>f', function() vim.lsp.buf.format { async = true } end, bufopts)
 end
+
+require'lspconfig'.jdtls.setup{
+	cmd={
+	'java', -- or '/path/to/java17_or_newer/bin/java'
+            -- depends on if `java` is in your $PATH env variable and if it points to the right version.
+	'-Declipse.application=org.eclipse.jdt.ls.core.id1',
+    	'-Dosgi.bundles.defaultStartLevel=4',
+   	'-Declipse.product=org.eclipse.jdt.ls.core.product',
+    '-Dlog.protocol=true',
+    '-Dlog.level=ALL',
+    '-Xms1g',
+    '--add-modules=ALL-SYSTEM',
+    '--add-opens', 'java.base/java.util=ALL-UNNAMED',
+    '--add-opens', 'java.base/java.lang=ALL-UNNAMED',
+	'-jar', '/home/kali/eclipse.jdt.ls/org.eclipse.jdt.ls.product/target/repository/plugins/org.eclipse.equinox.launcher_1.6.400.v20210924-0641.jar',
+	'-configuration', '/home/kali/eclipse.jdt.ls/org.eclipse.jdt.ls.product/target/repository/config_linux',
+	'-data','../lsps/'
+	},
+    filetypes = {"java"},
+    autostart = true,
+    on_attach=on_attach,
+}
