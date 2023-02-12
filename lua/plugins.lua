@@ -11,6 +11,7 @@ return require('packer').startup(function(use)
 		tag = "v3.*",
 		requires = 'nvim-tree/nvim-web-devicons'
 	}
+	use 'mfussenegger/nvim-jdtls'
 	use 'folke/tokyonight.nvim'
 	use 'jiangmiao/auto-pairs'
 	use 'tpope/vim-fugitive'
