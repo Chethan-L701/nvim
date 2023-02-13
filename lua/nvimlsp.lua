@@ -52,3 +52,4 @@ require'lspconfig'.jdtls.setup{
     autostart = true,
     on_attach=on_attach,
 }
+require'lspconfig'.clangd.setup{}
