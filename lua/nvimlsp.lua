@@ -1,7 +1,10 @@
 local opts = { noremap=true, silent=true }
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
 local lspconfig = require('lspconfig')
-require'lspconfig'.pyright.setup{}
+require'lspconfig'.tsserver.setup{}
+require'lspconfig'.pyright.setup{
+	capabilities=capabilities,
+}
 vim.keymap.set('n', '<space>e', vim.diagnostic.open_float, opts)
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, opts)
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next, opts)
@@ -101,5 +104,6 @@ cmp.setup {
   sources = {
     { name = 'nvim_lsp' },
     { name = 'luasnip' },
+    { name = 'emmet_vim' },
   },
 }

@@ -26,5 +26,6 @@ sections = {
       always_visible = false,   -- Show diagnostics even if there are none.
     }
   }
-}
+},
+options = { theme = 'tokyonight' }
 }

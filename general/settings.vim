@@ -5,7 +5,7 @@ let g:minimap_auto_start = 1
 let g:minimap_auto_start_win_enter = 1
 
 syntax enable
-colorscheme tokyonight
+colorscheme tokyonight-night
 set encoding=UTF-8
 set background=dark
 set hidden

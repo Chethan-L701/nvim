@@ -17,6 +17,7 @@ return require('packer').startup(function(use)
 	use 'hrsh7th/cmp-path'
 	use 'hrsh7th/cmp-cmdline'
 	use 'hrsh7th/nvim-cmp'
+	use 'dcampos/cmp-emmet-vim'
 	use 'saadparwaiz1/cmp_luasnip' -- Snippets source for nvim-cmp
   	use 'L3MON4D3/LuaSnip' -- Snippets plugin
 	use 'mfussenegger/nvim-jdtls'
@@ -29,6 +30,7 @@ return require('packer').startup(function(use)
 	use 'nvim-lualine/lualine.nvim'
 	use 'vim-airline/vim-airline'
 	use 'justinmk/vim-sneak'
+	use 'mattn/emmet-vim'
 	use 'ryanoasis/vim-devicons'
 	use 'honza/vim-snippets'
 	use 'tomtom/tlib_vim'
@@ -36,4 +38,16 @@ return require('packer').startup(function(use)
 	use 'garbas/vim-snipmate'
 	use 'MarcWeber/vim-addon-mw-utils'
 	use 'neovim/nvim-lspconfig'
+	use {
+  		'nvim-telescope/telescope.nvim', branch = '0.1.x',
+ 		requires = { {'nvim-lua/plenary.nvim'}}
+	}
+        use {
+                'nvim-treesitter/nvim-treesitter',
+                run = function()
+                local ts_update = require('nvim-treesitter.install').update({ with_sync = true })
+                ts_update()
+                end,
+        }
+	use 'simrat39/symbols-outline.nvim'	
 end)
