@@ -135,7 +135,7 @@ ins_left({
 ins_left({
 	"diagnostics",
 	sources = { "nvim_diagnostic" },
-	symbols = { error = " ", warn = " ", info = " " },
+	symbols = { error = "", warn = "", info = "" },
 	diagnostics_color = {
 		color_error = { fg = color.red },
 		color_warn = { fg = color.yellow },
@@ -196,8 +196,8 @@ ins_right({
 
 ins_right({
 	"branch",
-	icon = "",
-	color = { fg = colors.violet, gui = "bold" },
+	icon = "",
+	color = { fg = colors.violet, gui = "bold", bg = colors.surface0 },
 	on_click = function()
 		vim.cmd([[Neogit]])
 	end,

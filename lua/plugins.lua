@@ -32,7 +32,7 @@ require("lazy").setup({
 			wk.register({
 				f = { name = "Telescope" },
 				b = { name = "Buffers and Barbecue" },
-				d = { name = "Dap", t = { name = "Terminate" } },
+				d = { name = "Dap", t = { name = "Terminate" }, v = { name = "Diffview" } },
 				g = { name = "Git", s = { name = "Gitsigns" } },
 				l = { name = "Symbols" },
 				s = { name = "Symbols Ol" },
@@ -221,7 +221,7 @@ require("lazy").setup({
 	"hrsh7th/cmp-cmdline",
 	"hrsh7th/nvim-cmp",
 	"L3MON4D3/LuaSnip",
-	{"saadparwaiz1/cmp_luasnip"},
+	{ "saadparwaiz1/cmp_luasnip" },
 	{
 		"NvChad/nvim-colorizer.lua",
 		lazy = true,
@@ -334,8 +334,11 @@ require("lazy").setup({
 		lazy = true,
 		cmd = "DiffviewOpen",
 		keys = {
-			{ "<leader>gd", "<cmd>DiffviewOpen<cr>", desc = "Open Split Diff view" },
-			{ "<leader>gv", "<cmd>DiffviewClose", desc = "Close Split Diff view" },
+			{ "<leader>dvo", "<cmd>DiffviewOpen<cr>", desc = "Open Split Diff view" },
+			{ "<leader>dvc", "<cmd>DiffviewClose", desc = "Close Split Diff view" },
+			{ "<leader>dvl", "<cmd>DiffviewLog<cr>", desc = "Open Log Diff view" },
+			{ "<leader>dvr", "<cmd>DiffviewRefresh<cr>", desc = "Refresh Diff view" },
+			{ "<leader>dvh", "<cmd>DiffviewFileHistory<cr>", desc = "Open File History Diff view" },
 		},
 	},
 	{
@@ -350,38 +353,38 @@ require("lazy").setup({
 		},
 		cmd = "SymbolsOutline",
 	},
-	-- {
-	-- 	"lukas-reineke/indent-blankline.nvim",
-	-- 	main = "ibl",
-	-- 	lazy = false,
-	-- 	config = function()
-	-- 		local highlight = {
-	-- 			"IblRed",
-	-- 			"IblYellow",
-	-- 			"IblBlue",
-	-- 			"IblOrange",
-	-- 			"IblGreen",
-	-- 			"IblViolet",
-	-- 			"IblCyan",
-	-- 		}
+	{
+		"lukas-reineke/indent-blankline.nvim",
+		main = "ibl",
+		lazy = false,
+		config = function()
+			local highlight = {
+				"IblRed",
+				"IblYellow",
+				"IblBlue",
+				"IblOrange",
+				"IblGreen",
+				"IblViolet",
+				"IblCyan",
+			}
 
-	-- 		local hooks = require("ibl.hooks")
-	-- 		local colors = require("catppuccin.palettes").get_palette("mocha")
-	-- 		-- create the highlight groups in the highlight setup hook, so they are reset
-	-- 		-- every time the colorscheme changes
-	-- 		hooks.register(hooks.type.HIGHLIGHT_SETUP, function()
-	-- 			vim.api.nvim_set_hl(0, "IblRed", { fg = colors.red })
-	-- 			vim.api.nvim_set_hl(0, "IblYellow", { fg = colors.yellow })
-	-- 			vim.api.nvim_set_hl(0, "IblBlue", { fg = colors.blue })
-	-- 			vim.api.nvim_set_hl(0, "IblOrange", { fg = colors.peach })
-	-- 			vim.api.nvim_set_hl(0, "IblGreen", { fg = colors.green })
-	-- 			vim.api.nvim_set_hl(0, "IblViolet", { fg = colors.lavender })
-	-- 			vim.api.nvim_set_hl(0, "IblCyan", { fg = colors.cyan })
-	-- 		end)
+			local hooks = require("ibl.hooks")
+			local colors = require("catppuccin.palettes").get_palette("mocha")
+			-- create the highlight groups in the highlight setup hook, so they are reset
+			-- every time the colorscheme changes
+			hooks.register(hooks.type.HIGHLIGHT_SETUP, function()
+				vim.api.nvim_set_hl(0, "IblRed", { fg = colors.red })
+				vim.api.nvim_set_hl(0, "IblYellow", { fg = colors.yellow })
+				vim.api.nvim_set_hl(0, "IblBlue", { fg = colors.blue })
+				vim.api.nvim_set_hl(0, "IblOrange", { fg = colors.peach })
+				vim.api.nvim_set_hl(0, "IblGreen", { fg = colors.green })
+				vim.api.nvim_set_hl(0, "IblViolet", { fg = colors.lavender })
+				vim.api.nvim_set_hl(0, "IblCyan", { fg = colors.mauve })
+			end)
 
-	-- 		require("ibl").setup({ indent = { highlight = highlight } })
-	-- 	end,
-	-- },
+			require("ibl").setup({ indent = { highlight = highlight }, scope = { enabled = false } })
+		end,
+	},
 	{
 		"utilyre/barbecue.nvim",
 		name = "barbecue",
