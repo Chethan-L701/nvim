@@ -26,5 +26,5 @@ vim.o.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
 require("plugins")
 require("keymaps")
 require("autocmds")
-vim.cmd.colorscheme("catppuccin")
+vim.cmd[[colorscheme catppuccin]]
 require("highlights").set_highlights()

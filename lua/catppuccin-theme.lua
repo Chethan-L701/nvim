@@ -29,11 +29,6 @@ local opts = {
 		types = { "bold" },
 		operators = {},
 	},
-	color_overrides = {
-		all = {
-			base = "#111111",
-		},
-	},
 	custom_highlights = function(colors)
 		return {
 			CmpItemMenu = { bg = colors.base },
@@ -48,11 +43,11 @@ local opts = {
 		gitsigns = true,
 		nvimtree = true,
 		treesitter = true,
-		ts_rainbow = true,
 		notify = true,
 		mini = false,
 		alpha = true,
 		lsp_trouble = true,
+        which_key = true,
 		bufferline = true,
 		symbols_outline = true,
 		--indent_blankline = true,
@@ -66,6 +61,10 @@ local opts = {
 			bold_basename = true,
 			dim_context = false,
 			alt_background = false,
+		},
+		dap = {
+			enabled = true,
+			enable_ui = true, -- enable nvim-dap-ui
 		},
 		-- For more plugins integrations please scroll down (https://github.com/catppuccin/nvim#integrations)
 	},

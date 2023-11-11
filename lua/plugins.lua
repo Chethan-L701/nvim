@@ -48,6 +48,11 @@ require("lazy").setup({
 		lazy = false,
 	},
 	{
+		"folke/tokyonight.nvim",
+		lazy = false,
+		opts = require("tokyonight-theme"),
+	},
+	{
 		"luukvbaal/statuscol.nvim",
 		config = function()
 			require("statuscol").setup({})
@@ -158,7 +163,8 @@ require("lazy").setup({
 	},
 	{
 		"navarasu/onedark.nvim",
-		lazy = true,
+		lazy = false,
+		opts = require("ondark-conf"),
 	},
 	{
 		"nvim-telescope/telescope.nvim",
@@ -384,7 +390,7 @@ require("lazy").setup({
 				vim.api.nvim_set_hl(0, "IblCyan", { fg = colors.mauve })
 			end)
 
-			require("ibl").setup({ indent = { highlight = highlight }, scope = { enabled = false } })
+			require("ibl").setup({ scope = { enabled = true} })
 		end,
 	},
 	{
@@ -450,7 +456,7 @@ require("lazy").setup({
 			-- options
 		},
 		config = function()
-			require("fidget").setup({})
+			require("fidget").setup()
 		end,
 		lazy = false,
 	},
@@ -468,4 +474,5 @@ require("lazy").setup({
 		},
 		lazy = true,
 	},
+	{ "rebelot/kanagawa.nvim", lazy = false, opts = require("kanagawa-conf") },
 })
