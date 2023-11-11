@@ -40,6 +40,8 @@ require("lazy").setup({
 				t = { name = "treesitter" },
 				x = { name = "Trouble" },
 				c = { name = "Code Actions" },
+				o = { name = "Oil" },
+				w = { name = "Workspace" },
 				u = { name = "Undo" },
 			}, { prefix = "<leader>" })
 		end,
@@ -264,8 +266,8 @@ require("lazy").setup({
 			{ "<leader>gsn", "<cmd> Gitsigns next_hunk<cr>", desc = "Next Hunk" },
 		},
 	},
-	{ "tpope/vim-fugitive", lazy = false },
-	{ "tpope/vim-commentary", lazy = true, cmd = "Commentary" },
+	{ "tpope/vim-fugitive", lazy = true, cmd = "Git" },
+	{ "tpope/vim-commentary", lazy = false },
 	{
 		"folke/trouble.nvim",
 		dependencies = { "nvim-tree/nvim-web-devicons" },
@@ -451,5 +453,19 @@ require("lazy").setup({
 			require("fidget").setup({})
 		end,
 		lazy = false,
+	},
+	{
+		"stevearc/oil.nvim",
+		-- Optional dependencies
+		config = function()
+			local opts = require("oil-conf")
+			require("oil").setup(opts)
+		end,
+		dependencies = { "nvim-tree/nvim-web-devicons" },
+		cmd = "Oil",
+		keys = {
+			{ "<leader>oo", "<cmd>Oil<cr>", desc = "Open Oil Nvim" },
+		},
+		lazy = true,
 	},
 })

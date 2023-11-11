@@ -156,13 +156,14 @@ local capabilities = require("cmp_nvim_lsp").default_capabilities()
 -- Replace <YOUR_LSP_SERVER> with each lsp server you've enabled.
 local servers = {
 	"jsonls",
-    "cssls",
-    "cssmodules_ls",
-    "emmet_ls",
+	"cssls",
+	"cssmodules_ls",
+	"emmet_ls",
 	"tsserver",
-    "gopls",
-    "clangd",
-    "pylyzer",
+	"gopls",
+	"clangd",
+	"pyright",
+	"pylyzer",
 	"rust_analyzer",
 	"lua_ls",
 }

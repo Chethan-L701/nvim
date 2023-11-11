@@ -32,5 +32,8 @@
         "/home/kali/.local/share/nvim/lazy/cmp-cmdline/after",
         "/home/kali/.local/share/nvim/lazy/catppuccin/after",
         "${3rd}/luassert/library"
+    ],
+    "diagnostics.globals": [
+        "vim"
     ]
 }
