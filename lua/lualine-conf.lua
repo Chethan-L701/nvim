@@ -79,11 +79,11 @@ ins_left({
 	color = { fg = color.red }, -- Sets highlighting of component
 	padding = { left = 0, right = 1 }, -- We don't need space before this
 })
--- 
+--   
 ins_left({
 	-- mode component
 	function()
-		return ""
+		return " "
 	end,
 	color = function()
 		-- auto change color according to neovims mode
@@ -135,7 +135,7 @@ ins_left({
 ins_left({
 	"diagnostics",
 	sources = { "nvim_diagnostic" },
-	symbols = { error = "", warn = "", info = "" },
+	symbols = { error = " ", warn = " ", info = " " },
 	diagnostics_color = {
 		color_error = { fg = color.red },
 		color_warn = { fg = color.yellow },
@@ -206,10 +206,10 @@ ins_right({
 ins_right({
 	"diff",
 	-- Is it me or the symbol for modified us really weird
-	symbols = { added = " ", modified = "󰝤 ", removed = " " },
+	symbols = { added = " ", modified = " ", removed = " " },
 	diff_color = {
 		added = { fg = colors.green },
-		modified = { fg = colors.orange },
+		modified = { fg = colors.yellow },
 		removed = { fg = colors.red },
 	},
 	-- cond = conditions.hide_in_width,

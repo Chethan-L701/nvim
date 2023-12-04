@@ -163,7 +163,7 @@ local servers = {
 	"gopls",
 	"clangd",
 	"pyright",
-	"pylyzer",
+    "tailwindcss",
 	"rust_analyzer",
 	"lua_ls",
 }

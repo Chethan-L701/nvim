@@ -46,11 +46,12 @@ lspconfig.rust_analyzer.setup({
 lspconfig.gopls.setup({})
 lspconfig.cssmodules_ls.setup({})
 lspconfig.cssls.setup({})
-lspconfig.pylyzer.setup({})
+-- lspconfig.pylyzer.setup({})
 lspconfig.pyright.setup({})
 lspconfig.emmet_ls.setup({})
 lspconfig.jsonls.setup({})
 lspconfig.clangd.setup({})
+lspconfig.tailwindcss.setup({})
 -- Global mappings.
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
 vim.keymap.set("n", "<space>e", vim.diagnostic.open_float, { desc = "Open diagnostic Float" })

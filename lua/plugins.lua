@@ -50,7 +50,7 @@ require("lazy").setup({
 	{
 		"folke/tokyonight.nvim",
 		lazy = false,
-		opts = require("tokyonight-theme"),
+		opts = require("themes.tokyonight-theme"),
 	},
 	{
 		"luukvbaal/statuscol.nvim",
@@ -59,6 +59,9 @@ require("lazy").setup({
 		end,
 		lazy = false,
 	},
+	{ "chentoast/marks.nvim" , config = function ()
+	   require("marks").setup();
+	end},
 	{
 		"nvim-treesitter/nvim-treesitter-textobjects",
 		lazy = true,
@@ -95,7 +98,7 @@ require("lazy").setup({
 		name = "catppuccin",
 		lazy = false,
 		config = function()
-			local opts = require("catppuccin-theme")
+			local opts = require("themes.catppuccin-theme")
 			require("catppuccin").setup(opts)
 		end,
 		priority = 1000,
@@ -164,7 +167,7 @@ require("lazy").setup({
 	{
 		"navarasu/onedark.nvim",
 		lazy = false,
-		opts = require("ondark-conf"),
+		opts = require("themes.ondark-conf"),
 	},
 	{
 		"nvim-telescope/telescope.nvim",
@@ -228,7 +231,13 @@ require("lazy").setup({
 	"hrsh7th/cmp-path",
 	"hrsh7th/cmp-cmdline",
 	"hrsh7th/nvim-cmp",
-	"L3MON4D3/LuaSnip",
+	{
+		"L3MON4D3/LuaSnip",
+		-- follow latest release.
+		version = "v2.*", -- Replace <CurrentMajor> by the latest released major (first number of latest release)
+		-- install jsregexp (optional!).
+		build = "make install_jsregexp",
+	},
 	{ "saadparwaiz1/cmp_luasnip" },
 	{
 		"NvChad/nvim-colorizer.lua",
@@ -390,7 +399,7 @@ require("lazy").setup({
 				vim.api.nvim_set_hl(0, "IblCyan", { fg = colors.mauve })
 			end)
 
-			require("ibl").setup({ scope = { enabled = true} })
+			require("ibl").setup({ scope = { enabled = false } })
 		end,
 	},
 	{
@@ -474,5 +483,5 @@ require("lazy").setup({
 		},
 		lazy = true,
 	},
-	{ "rebelot/kanagawa.nvim", lazy = false, opts = require("kanagawa-conf") },
+	{ "rebelot/kanagawa.nvim", lazy = false, opts = require("themes.kanagawa-conf") },
 })
