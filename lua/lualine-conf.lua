@@ -1,20 +1,3 @@
-local colors = {
-	bg = "#202328",
-	fg = "#bbc2cf",
-	yellow = "#ECBE7B",
-	cyan = "#008080",
-	darkblue = "#081633",
-	green = "#98be65",
-	orange = "#FF8800",
-	violet = "#a9a1e1",
-	magenta = "#c678dd",
-	blue = "#51afef",
-	red = "#ec5f67",
-	redlight = "#ff9999",
-	redmid = "#ff5555",
-	reddark = "#ff0000",
-	redwarm = "#ff5577",
-}
 local color = require("catppuccin.palettes").get_palette("mocha")
 if color == nil then
 	color = {}
@@ -197,7 +180,7 @@ ins_right({
 ins_right({
 	"branch",
 	icon = "",
-	color = { fg = colors.violet, gui = "bold", bg = colors.surface0 },
+	color = { fg = color.lavender, gui = "bold" },
 	on_click = function()
 		vim.cmd([[Neogit]])
 	end,
@@ -208,9 +191,9 @@ ins_right({
 	-- Is it me or the symbol for modified us really weird
 	symbols = { added = " ", modified = " ", removed = " " },
 	diff_color = {
-		added = { fg = colors.green },
-		modified = { fg = colors.yellow },
-		removed = { fg = colors.red },
+		added = { fg = color.green },
+		modified = { fg = color.yellow },
+		removed = { fg = color.red },
 	},
 	-- cond = conditions.hide_in_width,
 	on_click = function()
