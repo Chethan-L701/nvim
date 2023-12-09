@@ -26,5 +26,6 @@ vim.o.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
 require("plugins")
 require("keymaps")
 require("autocmds")
-vim.cmd[[colorscheme kanagawa]]
+vim.cmd([[colorscheme kanagawa]])
 -- require("highlights").set_highlights()
+vim.api.nvim_set_hl(0, "TelescopeSelection", { bg = "none" })

@@ -59,9 +59,12 @@ require("lazy").setup({
 		end,
 		lazy = false,
 	},
-	{ "chentoast/marks.nvim" , config = function ()
-	   require("marks").setup();
-	end},
+	{
+		"chentoast/marks.nvim",
+		config = function()
+			require("marks").setup()
+		end,
+	},
 	{
 		"nvim-treesitter/nvim-treesitter-textobjects",
 		lazy = true,
