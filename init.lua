@@ -18,8 +18,8 @@ vim.opt.pumheight = 15
 
 vim.opt.termguicolors = true
 vim.o.foldcolumn = "0" -- '0' is not bad
-vim.o.foldlevel = 9 -- Using ufo provider need a large value, feel free to decrease the value
-vim.o.foldlevelstart = 10
+vim.o.foldlevel = 200 -- Using ufo provider need a large value, feel free to decrease the value
+vim.o.foldlevelstart = 100
 vim.o.foldenable = true
 vim.o.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
 
@@ -29,3 +29,4 @@ require("autocmds")
 vim.cmd([[colorscheme kanagawa]])
 -- require("highlights").set_highlights()
 vim.api.nvim_set_hl(0, "TelescopeSelection", { bg = "none" })
+vim.api.nvim_set_hl(0, "FloatBorder", { link = "Normal" })

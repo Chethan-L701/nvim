@@ -22,6 +22,7 @@ return {
 	overrides = function(colors) -- add/modify highlights
 		return {
 			TelescopeBorder = { bg = "none" },
+			FloatBordor = { bg = "none" },
 		}
 	end,
 	theme = "wave", -- Load "wave" theme when 'background' option is not set

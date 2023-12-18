@@ -10,7 +10,6 @@ if not vim.loop.fs_stat(lazypath) then
 	})
 end
 vim.opt.rtp:prepend(lazypath)
-
 require("lazy").setup({
 	install = {
 		missing = true,
@@ -486,5 +485,12 @@ require("lazy").setup({
 		},
 		lazy = true,
 	},
-	{ "rebelot/kanagawa.nvim", lazy = false, opts = require("themes.kanagawa-conf") },
+	{
+		"rebelot/kanagawa.nvim",
+		lazy = false,
+		config = function()
+			local opts = require("themes.kanagawa-conf")
+			require("kanagawa").setup(opts)
+		end,
+	},
 })
