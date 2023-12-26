@@ -1,6 +1,5 @@
 local opts = {
 	-- A list of parser names, or "all" (the five listed parsers should always be installed)
-	ensure_installed = { "c", "lua", "cpp", "java", "python", "rust" , "typescript", "javascript", "html", "css"},
 
 	-- Install parsers synchronously (only applied to `ensure_installed`)
 	sync_install = false,

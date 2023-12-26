@@ -15,6 +15,14 @@ require("lazy").setup({
 		missing = true,
 		colorscheme = { "catppuccin" },
 	},
+	ui = {
+		border = "double",
+		size = {
+			width = 0.8,
+			height = 0.8,
+		},
+	},
+	require("themes"),
 	{
 		"nvim-treesitter/nvim-treesitter",
 		lazy = true,
@@ -23,6 +31,7 @@ require("lazy").setup({
 			require("nvim-treesitter.configs").setup(opts)
 		end,
 	},
+
 	{
 		"folke/which-key.nvim",
 		config = function()
@@ -45,11 +54,6 @@ require("lazy").setup({
 			}, { prefix = "<leader>" })
 		end,
 		lazy = false,
-	},
-	{
-		"folke/tokyonight.nvim",
-		lazy = false,
-		opts = require("themes.tokyonight-theme"),
 	},
 	{
 		"luukvbaal/statuscol.nvim",
@@ -94,16 +98,6 @@ require("lazy").setup({
 		config = function()
 			require("nvim-ufo-conf")
 		end,
-	},
-	{
-		"catppuccin/nvim",
-		name = "catppuccin",
-		lazy = false,
-		config = function()
-			local opts = require("themes.catppuccin-theme")
-			require("catppuccin").setup(opts)
-		end,
-		priority = 1000,
 	},
 	{
 		"akinsho/bufferline.nvim",
@@ -155,21 +149,7 @@ require("lazy").setup({
 		cmd = "Neotree",
 	},
 	{
-		"nvim-lualine/lualine.nvim",
-		requires = { "nvim-tree/nvim-web-devicons", opt = true },
-		config = function()
-			local opts = require("lualine-conf")
-			require("lualine").setup(opts)
-		end,
-		lazy = false,
-	},
-	{
 		"neovim/nvim-lspconfig",
-	},
-	{
-		"navarasu/onedark.nvim",
-		lazy = false,
-		opts = require("themes.ondark-conf"),
 	},
 	{
 		"nvim-telescope/telescope.nvim",
@@ -332,7 +312,12 @@ require("lazy").setup({
 		config = true,
 		lazy = true,
 		keys = {
-			{ "<C-\\>", "<Cmd>ToggleTerm<CR>", mode = "t", desc = "Toggle Term" },
+			{
+				"<C-\\>",
+				"<Cmd>ToggleTerm<CR>",
+				mode = "t",
+				desc = "Toggle Term",
+			},
 			{ "<C-\\>", "<Cmd>ToggleTerm direction=horizontal<CR>", desc = "Horizontal Toggle Ter" },
 			{ "<M-\\>", "<Cmd>ToggleTerm direction=float<CR>", desc = "Float Toggle Term" },
 		},
@@ -484,13 +469,5 @@ require("lazy").setup({
 			{ "<leader>oo", "<cmd>Oil<cr>", desc = "Open Oil Nvim" },
 		},
 		lazy = true,
-	},
-	{
-		"rebelot/kanagawa.nvim",
-		lazy = false,
-		config = function()
-			local opts = require("themes.kanagawa-conf")
-			require("kanagawa").setup(opts)
-		end,
 	},
 })

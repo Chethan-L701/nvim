@@ -24,9 +24,9 @@ vim.o.foldenable = true
 vim.o.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
 
 require("plugins")
-require("keymaps")
-require("autocmds")
-vim.cmd([[colorscheme kanagawa]])
+require("core.keymaps")
+require("core.autocmds")
+vim.cmd[[colorscheme kanagawa]]
 -- require("highlights").set_highlights()
 vim.api.nvim_set_hl(0, "TelescopeSelection", { bg = "none" })
 vim.api.nvim_set_hl(0, "FloatBorder", { link = "Normal" })
