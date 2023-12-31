@@ -12,4 +12,14 @@ local opts = {
 	zindex = 20, -- The Z-index of the context window
 	on_attach = nil, -- (fun(buf: integer): boolean) return false to disable attaching
 }
-return opts
+return {
+	
+		"nvim-treesitter/nvim-treesitter-context",
+		lazy = false,
+		config = function()
+			require("treesitter-context").setup(opts)
+		end,
+keys = {
+			{ "<leader>tc", "<cmd>TSContextToggle<cr>", desc = "Toggle context" },
+		},
+}

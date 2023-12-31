@@ -1,7 +1,7 @@
 local opts = {
 	window = {
 		mappings = {
-			["P"] = { "toggle_preview", config = { use_float = false } },
+			["P"] = { "toggle_preview", config = { use_float = true } },
 		},
 	},
 	filesystem = {
@@ -9,7 +9,7 @@ local opts = {
 			visible = true, -- when true, they will just be displayed differently than normal items
 			hide_dotfiles = false,
 			hide_gitignored = false,
-			hide_hidden = true, -- only works on Windows for hidden files/directories
+			hide_hidden = false, -- only works on Windows for hidden files/directories
 			hide_by_name = {
 				".DS_Store",
 				"thumbs.db",
@@ -42,7 +42,7 @@ local opts = {
 	},
 	source_selector = {
 		winbar = false, -- toggle to show selector on winbar
-		statusline = false, -- toggle to show selector on statusline
+		statusline = true, -- toggle to show selector on statusline
 		show_scrolled_off_parent_node = false, -- boolean
 		sources = { -- table
 			{
@@ -62,7 +62,7 @@ local opts = {
 		tabs_layout = "equal", -- string
 		truncation_character = "…", -- string
 		tabs_min_width = nil, -- int | nil
-		tabs_max_width = nil, -- int | nil
+		tabs_max_width = 20, -- int | nil
 		padding = 0, -- int | { left: int, right: int }
 		separator = { left = "▏", right = "▕" }, -- string | { left: string, right: string, override: string | nil }
 		separator_active = nil, -- string | { left: string, right: string, override: string | nil } | nil
@@ -75,4 +75,20 @@ local opts = {
 	},
 }
 
-return opts
+return 	{
+		"nvim-neo-tree/neo-tree.nvim",
+		branch = "v3.x",
+		dependencies = {
+			"nvim-lua/plenary.nvim",
+			"nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
+			"MunifTanjim/nui.nvim",
+		},
+		lazy = true,
+		config = function()
+			require("neo-tree").setup(opts)
+		end,
+		keys = {
+			{ "<leader>ex", "<cmd>Neotree toggle<CR>", desc = "Toggle NeoTree" },
+		},
+		cmd = "Neotree",
+	}

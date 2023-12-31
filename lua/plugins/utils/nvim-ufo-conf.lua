@@ -40,11 +40,22 @@ local handler = function(virtText, lnum, endLnum, width, truncate)
 	table.insert(newVirtText, { suffix, "MoreMsg" })
 	return newVirtText
 end
-require("ufo").setup({
-	provider_selector = function(bufnr, filetype, buftype)
-		return { "treesitter", "indent" }
-	end,
-	fold_virt_text_handler = handler,
-})
+
+
+return {
+    "kevinhwang91/nvim-ufo",
+    dependencies = "kevinhwang91/promise-async",
+    lazy = false,
+    keys = {},
+    config = function()
+        require("ufo").setup({
+            provider_selector = function(bufnr, filetype, buftype)
+                return { "treesitter", "indent" }
+            end,
+            fold_virt_text_handler = handler,
+        })
 vim.keymap.set("n", "zR", require("ufo").openAllFolds, { silent = true, desc = "Open All Folds" })
 vim.keymap.set("n", "zM", require("ufo").closeAllFolds, { silent = true, desc = "Clase All Folds" })
+
+    end,
+}

@@ -1,7 +1,3 @@
-local color = require("catppuccin.palettes").get_palette("mocha")
-if color == nil then
-	color = {}
-end
 local opts = {
 	kinds = {
 		Folder = "󰉋",
@@ -38,4 +34,27 @@ local opts = {
 		separator = "",
 	},
 }
-return opts
+return
+	{
+		"utilyre/barbecue.nvim",
+		name = "barbecue",
+		version = "*",
+		dependencies = {
+			"SmiteshP/nvim-navic",
+			"nvim-tree/nvim-web-devicons", -- optional dependency
+		},
+		config = function()
+			require("barbecue").setup(opts)
+		end,
+		keys = {
+			{ "<leader>b", desc = "Buffer" },
+			{
+				"<leader>be",
+				function()
+					require("barbecue.ui").toggle()
+				end,
+				desc = "Toggle Barbecue UI",
+			},
+		},
+		lazy = false,
+	}

@@ -16,17 +16,17 @@ require("lspconfig").lua_ls.setup({
 					-- Make the server awre of Neovim runtime files
 					workspace = {
 						checkThirdParty = false,
-						library = {
-							vim.env.VIMRUNTIME,
-							-- "${3rd}/luv/library"
-							-- "${3rd}/busted/library",
-						},
-						-- or pull in all of 'runtimepath'. NOTE: this is a lot slower
-						-- library = vim.api.nvim_get_runtime_file("", true)
 					},
-					diagnostics = {
-						globals = { "vim" },
+					diagnostics = {},
+					telemetry = { enable = false },
+					hint = {
+						enable = true,
+						arrayIndex = "Disable",
+						setType = false,
+						paramName = "Disable",
+						paramType = true,
 					},
+					codeLens = { enable = true },
 				},
 			})
 
@@ -36,11 +36,31 @@ require("lspconfig").lua_ls.setup({
 	end,
 })
 
-lspconfig.tsserver.setup({})
+lspconfig.tsserver.setup({
+	init_options = {
+		preferences = {
+			includeInlayParameterNameHints = "all",
+			includeInlayParameterNameHintsWhenArgumentMatchesName = true,
+			includeInlayFunctionParameterTypeHints = true,
+			includeInlayVariableTypeHints = true,
+			includeInlayPropertyDeclarationTypeHints = true,
+			includeInlayFunctionLikeReturnTypeHints = true,
+			includeInlayEnumMemberValueHints = true,
+			importModuleSpecifierPreference = "non-relative",
+		},
+	},
+})
 lspconfig.rust_analyzer.setup({
 	-- Server-specific settings. See `:help lspconfig-setup`
 	settings = {
-		["rust-analyzer"] = {},
+		["rust-analyzer"] = {
+			inlayHints = {
+				enable = true,
+				showParameterNames = true,
+				parameterHintsPrefix = "<- ",
+				otherHintsPrefix = "=> ",
+			},
+		},
 	},
 })
 lspconfig.gopls.setup({})
@@ -50,7 +70,12 @@ lspconfig.cssls.setup({})
 lspconfig.pyright.setup({})
 lspconfig.emmet_ls.setup({})
 lspconfig.jsonls.setup({})
-lspconfig.clangd.setup({})
+lspconfig.clangd.setup({
+	cmd = {
+		"clangd",
+		"--inlay-hints=true",
+	},
+})
 lspconfig.tailwindcss.setup({})
 -- Global mappings.
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions

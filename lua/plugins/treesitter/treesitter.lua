@@ -23,7 +23,7 @@ local opts = {
 		-- list of language that will be disabled
 		-- Or use a function for more flexibility, e.g. to disable slow treesitter highlight for large files
 		disable = function(lang, buf)
-			local max_filesize = 1024 * 1024 -- 1MB
+			local max_filesize = 1024 * 1024 -- 1GB
 			local ok, stats = pcall(vim.loop.fs_stat, vim.api.nvim_buf_get_name(buf))
 			if ok and stats and stats.size > max_filesize then
 				return true
@@ -136,4 +136,11 @@ local opts = {
 		},
 	},
 }
-return opts
+
+return {
+	"nvim-treesitter/nvim-treesitter",
+	lazy = true,
+	config = function()
+		require("nvim-treesitter.configs").setup(opts)
+	end,
+}
