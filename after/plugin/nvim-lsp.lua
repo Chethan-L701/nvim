@@ -2,6 +2,7 @@ require("mason").setup()
 require("mason-lspconfig").setup()
 local vim = vim
 local lspconfig = require("lspconfig")
+
 require("lspconfig").lua_ls.setup({
 	on_init = function(client)
 		local path = client.workspace_folders[1].name
@@ -16,6 +17,9 @@ require("lspconfig").lua_ls.setup({
 					-- Make the server awre of Neovim runtime files
 					workspace = {
 						checkThirdParty = false,
+						library = {
+							vim.o.runtimepath,
+						},
 					},
 					diagnostics = {},
 					telemetry = { enable = false },
@@ -63,6 +67,7 @@ lspconfig.rust_analyzer.setup({
 		},
 	},
 })
+
 lspconfig.gopls.setup({})
 lspconfig.cssmodules_ls.setup({})
 lspconfig.cssls.setup({})

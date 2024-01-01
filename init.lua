@@ -26,7 +26,5 @@ vim.o.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
 require("lazy-plugins")
 require("core.keymaps")
 require("core.autocmds")
-vim.cmd[[colorscheme horizon]]
 -- require("highlights").set_highlights()
-vim.api.nvim_set_hl(0, "TelescopeSelection", { bg = "none" })
 vim.api.nvim_set_hl(0, "FloatBorder", { link = "Normal" })

@@ -1,4 +1,4 @@
 return {
-		"nvim-treesitter/nvim-treesitter-textobjects",
-		lazy = true,
+	"nvim-treesitter/nvim-treesitter-textobjects",
+	lazy = false,
 }
