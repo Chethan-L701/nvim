@@ -1,3 +1,4 @@
+local vim = vim
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
     vim.fn.system({
@@ -67,9 +68,9 @@ require("lazy").setup({
     {
         "NeogitOrg/neogit",
         dependencies = {
-            "nvim-lua/plenary.nvim", -- required
+            "nvim-lua/plenary.nvim",         -- required
             "nvim-telescope/telescope.nvim", -- optional
-            "sindrets/diffview.nvim", -- optional
+            "sindrets/diffview.nvim",        -- optional
         },
         config = true,
         lazy = true,
@@ -92,6 +93,7 @@ require("lazy").setup({
     "hrsh7th/cmp-path",
     "hrsh7th/cmp-cmdline",
     "hrsh7th/nvim-cmp",
+    "hrsh7th/cmp-nvim-lsp-signature-help",
     {
         "L3MON4D3/LuaSnip",
         dependencies = {
@@ -193,7 +195,6 @@ require("lazy").setup({
             { "<M-\\>", "<Cmd>ToggleTerm direction=float<CR>",      desc = "Float Toggle Term" },
         },
     },
-
     {
         "sindrets/diffview.nvim",
         lazy = true,

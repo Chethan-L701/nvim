@@ -1,68 +1,68 @@
 local dap = require("dap")
 
 dap.adapters.cppdbg = {
-	id = "cppdbg",
-	type = "executable",
-	command = "/home/kali/.local/share/nvim/mason/bin/OpenDebugAD7",
+    id = "cppdbg",
+    type = "executable",
+    command = "/home/kali/.local/share/nvim/mason/bin/OpenDebugAD7",
 }
 
 dap.configurations.cpp = {
-	{
-		name = "lauch (cppdbg)",
-		type = "cppdbg",
-		request = "launch",
-		program = function()
-			return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file")
-		end,
-		cwd = "${workspaceFolder}",
-		stopAtEntry = true,
-	},
-	{
-		name = "lauch (gdb)",
-		type = "cppdbg",
-		request = "launch",
-		MIMode = "gdb",
-		miDebuggerPath = "/usr/bin/gdb",
-		cwd = "${workspaceFolder}",
-		program = function()
-			return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file")
-		end,
-	},
-	{
-		name = "lauch gdb with arguments",
-		type = "cppdbg",
-		request = "launch",
-		MIMode = "gdb",
-		miDebuggerPath = "/usr/bin/gdb",
-		cwd = "${workspaceFolder}",
-		program = function()
-			return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file")
-		end,
-		args = function()
-			local arg_str = vim.fn.input("Arguments: ")
-			return vim.split(arg_str, " ")
-		end,
-	},
+    {
+        name = "lauch (cppdbg)",
+        type = "cppdbg",
+        request = "launch",
+        program = function()
+            return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file")
+        end,
+        cwd = "${workspaceFolder}",
+        stopAtEntry = true,
+    },
+    {
+        name = "lauch (gdb)",
+        type = "cppdbg",
+        request = "launch",
+        MIMode = "gdb",
+        miDebuggerPath = "/usr/bin/gdb",
+        cwd = "${workspaceFolder}",
+        program = function()
+            return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file")
+        end,
+    },
+    {
+        name = "lauch gdb with arguments",
+        type = "cppdbg",
+        request = "launch",
+        MIMode = "gdb",
+        miDebuggerPath = "/usr/bin/gdb",
+        cwd = "${workspaceFolder}",
+        program = function()
+            return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file")
+        end,
+        args = function()
+            local arg_str = vim.fn.input("Arguments: ")
+            return vim.split(arg_str, " ")
+        end,
+    },
 }
 require("dap-python").setup("/usr/bin/python3.11")
 dap.configurations.c = dap.configurations.cpp
 
 -- nvim dap-ui
 require("dapui").setup({
-	icons = { expanded = "▾", collapsed = "▸" },
-	mappings = {
-		-- Use a table to apply multiple mappings
-	},
+    icons = { expanded = "▾", collapsed = "▸" },
+    mappings = {
+        -- Use a table to apply multiple mappings
+    },
 })
 local dapui = require("dapui")
 dap.listeners.after.event_initialized["dapui_config"] = function()
-	dapui.open()
+    dapui.open()
 end
 dap.listeners.before.event_terminated["dapui_config"] = function()
-	dapui.close()
+    dapui.close()
 end
 dap.listeners.before.event_exited["dapui_config"] = function()
-	dapui.close()
+    dapui.close()
 end
 -- dap keymaps
 vim.keymap.set("n", "<leader>db", dap.toggle_breakpoint, { desc = "Toggle BreakPoint" })

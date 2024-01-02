@@ -1,13 +1,22 @@
 local autocmd = vim.api.nvim_create_autocmd
-
-vim.api.nvim_create_user_command("QuitNvim", function()
-    vim.cmd[[wall!]]
-    local sscmd = "mksession! ".. vim.fn.getcwd() .. "/session.nvim"
+local command = vim.api.nvim_create_user_command
+command("QuitNvim", function()
+    vim.cmd([[wall!]])
+    local sscmd = "mksession! " .. vim.fn.getcwd() .. "/session.nvim"
     vim.cmd(sscmd)
     vim.cmd("qa!")
-end,{})
+end, {})
 
-autocmd("VimLeavePre",{
+autocmd("VimLeavePre", {
     pattern = "*",
-    command = "QuitNvim"
+    command = "QuitNvim",
+})
+
+command("LspFormat", function()
+    vim.lsp.buf.format()
+end, {})
+
+autocmd("BufWrite", {
+    pattern = "*",
+    command = "LspFormat",
 })

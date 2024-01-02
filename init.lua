@@ -18,13 +18,12 @@ vim.opt.pumheight = 15
 
 vim.opt.termguicolors = true
 vim.o.foldcolumn = "0" -- '0' is not bad
-vim.o.foldlevel = 200 -- Using ufo provider need a large value, feel free to decrease the value
+vim.o.foldlevel = 200  -- Using ufo provider need a large value, feel free to decrease the value
 vim.o.foldlevelstart = 100
 vim.o.foldenable = true
 vim.o.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
 
-require("lazy-plugins")
+require("plugins.lazy")
 require("core.keymaps")
 require("core.autocmds")
--- require("highlights").set_highlights()
-vim.api.nvim_set_hl(0, "FloatBorder", { link = "Normal" })
+require("core.highlights").set_highlights()

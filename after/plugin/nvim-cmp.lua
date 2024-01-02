@@ -60,11 +60,12 @@ cmp.setup({
 			vim_item.kind = string.format("▎ %s", kind_icons[vim_item.kind]) -- This concatonates the icons with the name of the item kind
 			-- Source
 			vim_item.menu = ({
-				buffer = "[buffer]",
-				nvim_lsp = "[lsp]",
-				luasnip = "[snip]",
+				buffer = " -> buffer",
+				nvim_lsp = " -> lsp",
+				luasnip = " -> snip",
 				nvim_lua = "",
-				latex_symbols = "[laTex]",
+				latex_symbols = " -> laTex",
+				nvim_lsp_signature_help = " -> signature",
 			})[entry.source.name]
 			return vim_item
 		end,
@@ -115,6 +116,7 @@ cmp.setup({
 	sources = cmp.config.sources({
 		{ name = "path" },
 		{ name = "nvim_lsp" },
+		{ name = "nvim_lsp_signature_help" },
 		-- { name = "vsnip" }, -- For vsnip users.
 		{ name = "luasnip" }, -- For luasnip users.
 		-- { name = 'ultisnips' }, -- For ultisnips users.

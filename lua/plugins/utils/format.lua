@@ -1,4 +1,3 @@
-
 return {
     "mhartington/formatter.nvim",
     lazy = true,
@@ -60,6 +59,6 @@ return {
     end,
     keys = {
         { "<leader>fm", "<cmd>FormatWrite<cr>", desc = "Format" },
-        { "<leader>fm", "<cmd>FormatWrite<cr>", mode = "v", desc = "Format" },
+        { "<leader>fm", "<cmd>FormatWrite<cr>", mode = "v",     desc = "Format" },
     },
 }
