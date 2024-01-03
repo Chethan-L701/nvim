@@ -94,6 +94,7 @@ require("lazy").setup({
     "hrsh7th/cmp-cmdline",
     "hrsh7th/nvim-cmp",
     "hrsh7th/cmp-nvim-lsp-signature-help",
+    "ray-x/cmp-treesitter",
     {
         "L3MON4D3/LuaSnip",
         dependencies = {
