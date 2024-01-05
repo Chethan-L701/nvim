@@ -26,24 +26,12 @@ require("lazy").setup({
     require("plugins.ui"),
     require("plugins.treesitter"),
     require("plugins.utils"),
+    require("plugins.git"),
 
     {
         "neovim/nvim-lspconfig",
     },
-    {
-        "NeogitOrg/neogit",
-        dependencies = {
-            "nvim-lua/plenary.nvim",         -- required
-            "nvim-telescope/telescope.nvim", -- optional
-            "sindrets/diffview.nvim",        -- optional
-        },
-        config = true,
-        lazy = true,
-        keys = {
-            { "<leader>gg", "<cmd>Neogit<cr>", desc = "Neogit" },
-        },
-        cmd = "Neogit",
-    },
+
     {
         "mfussenegger/nvim-dap",
     },
@@ -75,32 +63,7 @@ require("lazy").setup({
 
     "williamboman/mason.nvim",
     "williamboman/mason-lspconfig.nvim",
-    {
-        "lewis6991/gitsigns.nvim",
-        config = function()
-            require("gitsigns").setup()
-        end,
-        lazy = false,
-        keys = {
-            { "<leader>gs",  desc = "Gitsigns" },
-            { "<leader>gse", "<cmd> Gitsigns toggle_signs<cr>",              desc = "Toggle Git Signs" },
-            { "<leader>gsb", "<cmd> Gitsigns toggle_current_line_blame<cr>", desc = "Toggle Current Line Blame" },
-            { "<leader>gss", "<cmd> Gitsigns stage_hunk<cr>",                desc = "Stage Hunk" },
-            { "<leader>gsr", "<cmd> Gitsigns reset_hunk<cr>",                desc = "Reset Hunk" },
-            { "<leader>gsu", "<cmd> Gitsigns undo_stage_hunk<cr>",           desc = "Undo Stage Hunk" },
-            { "<leader>gsp", "<cmd> Gitsigns prev_hunk<cr>",                 desc = "Preview Hunk" },
-            { "<leader>gsn", "<cmd> Gitsigns next_hunk<cr>",                 desc = "Next Hunk" },
-        },
-    },
-    {
-        "tpope/vim-commentary",
-        lazy = true,
-        cmd = "Commentary",
-        keys = {
-            { "gcc", desc = "comment current line" },
-            { "gc",  desc = "comment the selected lines" },
-        },
-    },
+
     {
         "folke/trouble.nvim",
         dependencies = { "nvim-tree/nvim-web-devicons" },
@@ -131,18 +94,7 @@ require("lazy").setup({
         lazy = true,
         cmd = "MarkdownPreview",
     },
-    {
-        "sindrets/diffview.nvim",
-        lazy = true,
-        cmd = "DiffviewOpen",
-        keys = {
-            { "<leader>dvo", "<cmd>DiffviewOpen<cr>",        desc = "Open Split Diff view" },
-            { "<leader>dvc", "<cmd>DiffviewClose<cr>",       desc = "Close Split Diff view" },
-            { "<leader>dvl", "<cmd>DiffviewLog<cr>",         desc = "Open Log Diff view" },
-            { "<leader>dvr", "<cmd>DiffviewRefresh<cr>",     desc = "Refresh Diff view" },
-            { "<leader>dvh", "<cmd>DiffviewFileHistory<cr>", desc = "Open File History Diff view" },
-        },
-    },
+
     {
         "Exafunction/codeium.vim",
         config = function()
