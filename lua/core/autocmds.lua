@@ -20,3 +20,7 @@ autocmd("BufWrite", {
     pattern = "*",
     command = "LspFormat",
 })
+
+command("LoadAllColorSchemes", function()
+    vim.cmd([[Lazy load catppuccin kanagawa.nvim onedark.nvim tokyonight.nvim]])
+end, {})
