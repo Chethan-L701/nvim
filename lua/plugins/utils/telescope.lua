@@ -6,11 +6,7 @@ return {
     },
     config = function()
         require("telescope").setup({
-            pickers = {
-                find_files = {
-                    hidden = true,
-                },
-            },
+            pickers = {},
             defaults = {
                 vimgrep_arguments = {
                     "rg",
@@ -61,10 +57,20 @@ return {
             },
             extensions_list = { "themes", "terms" },
         })
+        vim.keymap.set({ "n", "v" }, "<leader>fg", function()
+            require("telescope.builtin").git_files()
+        end, { desc = "grep git files" })
+        vim.keymap.set({ "n", "v" }, "<leader>ff", function()
+            require("telescope.builtin").find_files()
+        end, { desc = "grep git files" })
+        vim.keymap.set({ "n", "v" }, "<leader>fa", function()
+            require("telescope.builtin").find_files({ hidden = true })
+        end, { desc = "grep git files" })
     end,
     keys = {
-        { "<leader>ff", "<cmd>Telescope find_files<cr>",                    desc = "Find Files" },
-        { "<leader>fg", "<cmd>Telescope git_files<cr>",                     desc = "Find Git Files" },
+        { "<leader>ff", desc = "Find Files" },
+        { "<leader>fa", desc = "Find all files" },
+        { "<leader>fg", desc = "Find Git Files" },
         { "<leader>fw", "<cmd>Telescope live_grep<cr>",                     desc = "Find Text" },
         { "<leader>fv", "<cmd>Telescope grep_string<cr>",                   desc = "Find Text" },
         { "<leader>fb", "<cmd>Telescope buffers<cr>",                       desc = "Find Buffers" },

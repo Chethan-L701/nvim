@@ -184,13 +184,11 @@ return {
             local servers = {
                 "jsonls",
                 "cssls",
-                "cssmodules_ls",
                 "emmet_ls",
                 "tsserver",
                 "gopls",
                 "clangd",
                 "pyright",
-                "tailwindcss",
                 "rust_analyzer",
                 "lua_ls",
             }
