@@ -1,4 +1,5 @@
 return {
+    { "folke/neodev.nvim", opts = {} },
     {
         "chentoast/marks.nvim",
         config = function()

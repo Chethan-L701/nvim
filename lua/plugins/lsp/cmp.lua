@@ -140,14 +140,14 @@ return {
                 },
 
                 sources = cmp.config.sources({
-                    { name = "path" },
                     { name = "nvim_lsp" },
+                    { name = "path" },
                     { name = "nvim_lsp_signature_help" },
-                    { name = "treesitter" },
                     -- { name = "vsnip" }, -- For vsnip users.
                     { name = "luasnip" }, -- For luasnip users.
                     -- { name = 'ultisnips' }, -- For ultisnips users.
                     -- { name = 'snippy' }, -- For snippy users.
+                    { name = "treesitter" },
                 }, {
                     { name = "buffer" },
                 }),
