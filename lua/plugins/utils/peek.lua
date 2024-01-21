@@ -1,6 +1,7 @@
 return {
     "toppair/peek.nvim",
-    event = { "VeryLazy" },
+    lazy = true,
+    ft = "md",
     build = "deno task --quiet build:fast",
     config = function()
         require("peek").setup()

@@ -12,6 +12,12 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 require("lazy").setup({
+    { import = "plugins.treesitter" },
+    { import = "plugins.ui" },
+    { import = "plugins.utils" },
+    { import = "plugins.lsp" },
+    { import = "plugins.git" },
+}, {
     install = {
         missing = true,
         colorscheme = { "horizon" },
@@ -23,9 +29,4 @@ require("lazy").setup({
             height = 0.8,
         },
     },
-    { import = "plugins.treesitter" },
-    { import = "plugins.ui" },
-    { import = "plugins.utils" },
-    { import = "plugins.lsp" },
-    { import = "plugins.git" },
 })
