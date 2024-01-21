@@ -1,16 +1,32 @@
 return {
     "akinsho/toggleterm.nvim",
     version = "*",
-    config = true,
+    config = function()
+        local Terminal = require("toggleterm.terminal").Terminal
+        local nu = Terminal:new({ cmd = "nu", hidden = true })
+
+        function nu_term()
+            nu:toggle()
+        end
+
+        require("toggleterm").setup()
+    end,
     lazy = true,
     keys = {
+
+        { "<C-\\>", "<Cmd>lua nu_term()<cr>",              desc = "horizontal Toggle Term" },
         {
             "<C-\\>",
-            "<Cmd>ToggleTerm<CR>",
+            function()
+                if vim.fn.has("windows") then
+                    nu_term()
+                else
+                    vim.cmd([[ToggleTerm direction=horizontal]])
+                end
+            end,
             mode = "t",
-            desc = "Toggle Term",
+            desc = "horizontal Toggle Term",
         },
-        { "<C-\\>", "<Cmd>ToggleTerm direction=horizontal<CR>", desc = "Horizontal Toggle Ter" },
-        { "<M-\\>", "<Cmd>ToggleTerm direction=float<CR>",      desc = "Float Toggle Term" },
+        { "<M-\\>", "<Cmd>ToggleTerm direction=float<CR>", desc = "Float Toggle Term" },
     },
 }

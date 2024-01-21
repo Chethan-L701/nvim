@@ -99,6 +99,7 @@ return {
                 cmd = {
                     "clangd",
                     "--inlay-hints=true",
+                    "--clang-tidy"
                 },
             })
             -- Global mappings.
