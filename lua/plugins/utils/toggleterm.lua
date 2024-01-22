@@ -14,7 +14,6 @@ return {
     lazy = true,
     keys = {
 
-        { "<C-\\>", "<Cmd>lua nu_term()<cr>",              desc = "horizontal Toggle Term" },
         {
             "<C-\\>",
             function()
@@ -24,8 +23,19 @@ return {
                     vim.cmd([[ToggleTerm direction=horizontal]])
                 end
             end,
-            mode = "t",
             desc = "horizontal Toggle Term",
+        },
+        {
+            "<C-\\>",
+            function()
+                if vim.loop.os_uname().sysname == "Windows_NT" then
+                    nu_term()
+                else
+                    vim.cmd([[ToggleTerm direction=horizontal]])
+                end
+            end,
+            desc = "horizontal Toggle Term",
+            mode = "t"
         },
         { "<M-\\>", "<Cmd>ToggleTerm direction=float<CR>", desc = "Float Toggle Term" },
     },
