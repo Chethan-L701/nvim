@@ -18,7 +18,7 @@ return {
         {
             "<C-\\>",
             function()
-                if vim.fn.has("windows") == 1 then
+                if vim.loop.os_uname().sysname == "Windows_NT" then
                     nu_term()
                 else
                     vim.cmd([[ToggleTerm direction=horizontal]])
