@@ -18,7 +18,7 @@ return {
         {
             "<C-\\>",
             function()
-                if vim.fn.has("windows") then
+                if vim.fn.has("windows") == 1 then
                     nu_term()
                 else
                     vim.cmd([[ToggleTerm direction=horizontal]])

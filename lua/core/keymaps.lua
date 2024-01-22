@@ -16,5 +16,7 @@ vim.keymap.set({ "n", "v", "x" }, "<leader>li", function()
 end, { desc = "toggle inlay hints" })
 vim.keymap.set("v", "<M-j>", ":m '>+1<CR>gv=gv") -- Shift visual selected line down
 vim.keymap.set("v", "<M-k>", ":m '<-2<CR>gv=gv") -- Shift visual selected line up
-vim.keymap.set("n", "]b", "<cmd>bnext<CR>")
-vim.keymap.set("n", "[b", "<cmd>bprevious<CR>")
+vim.keymap.set("n", "]b", "<cmd>bnext<CR>", { desc = "next buffer" })
+vim.keymap.set("n", "[b", "<cmd>bprevious<CR>", { desc = "previous buffer" })
+vim.keymap.set("n", "<leader>|", "<cmd>vsplit<cr>", { desc = "vertical split" })
+vim.keymap.set("n", "<leader>-", "<cmd>split<cr>", { desc = "horizontal split" })
