@@ -20,3 +20,7 @@ vim.keymap.set("n", "]b", "<cmd>bnext<CR>", { desc = "next buffer" })
 vim.keymap.set("n", "[b", "<cmd>bprevious<CR>", { desc = "previous buffer" })
 vim.keymap.set("n", "<leader>|", "<cmd>vsplit<cr>", { desc = "vertical split" })
 vim.keymap.set("n", "<leader>-", "<cmd>split<cr>", { desc = "horizontal split" })
+
+vim.keymap.set("n", "<leader>cc", function()
+    vim.cmd [[ApplyCatppuccin]]
+end, { desc = "apply catppuccin color scheme" })

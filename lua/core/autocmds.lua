@@ -12,6 +12,15 @@ autocmd("VimLeavePre", {
     command = "QuitNvim",
 })
 
+command("ApplyCatppuccin", function()
+    vim.cmd [[colorscheme catppuccin]]
+end, {})
+
+autocmd("VimEnter", {
+    pattern = "*",
+    command = "ApplyCatppuccin"
+})
+
 command("LspFormat", function()
     vim.lsp.buf.format()
 end, {})
