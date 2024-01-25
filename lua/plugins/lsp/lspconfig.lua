@@ -7,7 +7,12 @@ return {
             -- options
         },
         config = function()
-            require("fidget").setup()
+            require("fidget").setup({
+                blend = 0,
+                relative = "editor",
+            })
+            vim.api.nvim_set_hl(0, "FidgetTitle", { link = "NormalFloat" })
+            vim.api.nvim_set_hl(0, "FidgetTask", { link = "NormalFloat" })
         end,
         lazy = false,
     },
@@ -99,7 +104,7 @@ return {
                 cmd = {
                     "clangd",
                     "--inlay-hints=true",
-                    "--clang-tidy"
+                    "--clang-tidy",
                 },
             })
             -- Global mappings.
