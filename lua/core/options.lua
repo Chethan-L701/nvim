@@ -20,10 +20,11 @@ vim.o.foldlevel = 200  -- Using ufo provider need a large value, feel free to de
 vim.o.foldlevelstart = 100
 vim.o.foldenable = true
 vim.o.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
+vim.o.foldnestmax = 0
 
 vim.o.undofile = true
-if (vim.fn.has('windows')) then
+if vim.loop.os_uname().sysname == "Windows_NT" then
     vim.o.undodir = "C:\\Users\\Cheth\\AppData\\Local\\nvim-data\\undotree\\"
-elseif (vim.fn.has('macunix')) then
-    vim.o.undodir = "~/.vim/undotree/"
+else
+    vim.o.undodir = "~/.nvim/undotree/"
 end

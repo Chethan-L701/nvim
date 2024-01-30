@@ -15,7 +15,7 @@ local opts = {
     fold_markers = { "", "" },
     wrap = false,
     keymaps = { -- These keymaps can be a string or a table for multiple keys
-        close = { "<Esc>", "q" },
+        close = { "q" },
         goto_location = "<Cr>",
         focus_location = "o",
         hover_symbol = "<C-space>",
@@ -57,11 +57,11 @@ local opts = {
         Event = { icon = "🗲", hl = "@type" },
         Operator = { icon = "󰆕", hl = "@operator" },
         TypeParameter = { icon = "𝙏", hl = "@parameter" },
-        Component = { icon = "", hl = "@function" },
-        Fragment = { icon = "", hl = "@constant" },
+        Component = { icon = "c", hl = "@function" },
+        Fragment = { icon = "", hl = "@constant" },
     },
 }
-return 	{
+return {
     "simrat39/symbols-outline.nvim",
     lazy = true,
     config = function()

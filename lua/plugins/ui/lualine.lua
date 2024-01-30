@@ -10,15 +10,15 @@ return {
                 theme = function()
                     local colors = {
                         darkgray = "none",
-                        text0 = "#ffddff",
+                        text0 = "#bbbbff",
                         innerbg = nil,
                         outerbg = "none",
-                        normal = "#7e9cd8",
-                        insert = "#98bb6c",
-                        visual = "#8888cc",
+                        normal = "#7198fa",
+                        insert = "#aaffaa",
+                        visual = "#8888ff",
                         replace = "#e46876",
-                        command = "#e6c384",
-                        text = "#212121"
+                        command = "#ddcc88",
+                        text = "#212121",
                     }
                     return {
                         inactive = {
@@ -99,6 +99,15 @@ return {
                 lualine_z = {
                     "location",
                     "os.date('%a %H:%M:%S')",
+                    {
+                        function()
+                            if vim.loop.os_uname().sysname == "Windows_NT" then
+                                return ""
+                            else
+                                return ""
+                            end
+                        end,
+                    },
                 },
             },
         })

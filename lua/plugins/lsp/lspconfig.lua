@@ -94,7 +94,17 @@ return {
                 },
             })
 
-            lspconfig.gopls.setup({})
+            lspconfig.gopls.setup({
+                settings = {
+                    gopls = {
+                        ["ui.inlayhint.hints"] = {
+                            compositeLiteralFields = true,
+                            constantValues = true,
+                            parameterNames = true
+                        },
+                    },
+                },
+            })
             lspconfig.cssls.setup({})
             -- lspconfig.pylyzer.setup({})
             lspconfig.pyright.setup({})
