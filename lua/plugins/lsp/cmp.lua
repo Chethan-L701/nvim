@@ -80,9 +80,7 @@ return {
                 },
                 formatting = {
                     format = function(entry, vim_item)
-                        -- Kind icons
-                        -- put unicode char u+285ein the formatstring
-                        vim_item.kind = string.format("▎ %s", kind_icons[vim_item.kind]) -- This concatonates the icons with the name of the item kind
+                        vim_item.kind = string.format("▎ %s", kind_icons[vim_item.kind])
                         -- Source
                         vim_item.menu = ({
                             buffer = " -> buffer",

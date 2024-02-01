@@ -12,30 +12,41 @@ autocmd("VimLeavePre", {
     command = "QuitNvim",
 })
 
-command("ApplyCatppuccin", function()
-    vim.cmd([[colorscheme catppuccin]])
-    vim.api.nvim_set_hl(0, "CmpItemMenu", { bg = "none" })
+ApplyColorscheme = function(scheme)
+    local cmd = "colorscheme " .. scheme;
+    vim.cmd(cmd)
     local colors = {
         darkgray = "none",
+        text0 = "#bbbbff",
         innerbg = nil,
         outerbg = "none",
-        visual = "#8888cc",
-        insert = "#98bb6c",
-        normal = "#89b4fa",
+        normal = "#7198fa",
+        insert = "#aaffaa",
+        visual = "#8888ff",
         replace = "#e46876",
-        command = "#e6c384",
+        command = "#ddcc88",
         text = "#212121",
     }
+    vim.api.nvim_set_hl(0, "CmpItemMenu", { bg = "none" })
+    vim.api.nvim_set_hl(0, "FloatBorder", { link = "Normal" })
     vim.api.nvim_set_hl(0, "lualine_a_insert", { fg = colors.insert, bg = "none" })
     vim.api.nvim_set_hl(0, "lualine_a_normal", { fg = colors.normal, bg = "none" })
     vim.api.nvim_set_hl(0, "lualine_a_visual", { fg = colors.visual, bg = "none" })
     vim.api.nvim_set_hl(0, "lualine_a_replace", { fg = colors.replace, bg = "none" })
     vim.api.nvim_set_hl(0, "lualine_a_command", { fg = colors.command, bg = "none" })
+end
+
+command("ApplyColorscheme", function()
+    local scheme = vim.fn.input("ColorScheme : ", "")
+    if scheme == "" then
+        scheme = "kanagawa"
+    end
+    ApplyColorscheme(scheme)
 end, {})
 
 autocmd("VimEnter", {
     pattern = "*",
-    command = "ApplyCatppuccin",
+    command = "lua ApplyColorscheme('kanagawa')"
 })
 
 command("LspFormat", function()

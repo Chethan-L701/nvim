@@ -100,7 +100,7 @@ return {
                         ["ui.inlayhint.hints"] = {
                             compositeLiteralFields = true,
                             constantValues = true,
-                            parameterNames = true
+                            parameterNames = true,
                         },
                     },
                 },

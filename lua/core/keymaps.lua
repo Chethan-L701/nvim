@@ -22,7 +22,8 @@ vim.keymap.set("n", "<leader>|", "<cmd>vsplit<cr>", { desc = "vertical split" })
 vim.keymap.set("n", "<leader>-", "<cmd>split<cr>", { desc = "horizontal split" })
 
 vim.keymap.set("n", "<leader>cc", function()
-    vim.cmd [[ApplyCatppuccin]]
-end, { desc = "apply catppuccin color scheme" })
-vim.keymap.set({ "n", "v", "x" }, "<leader>hi", function() require("core.highlights").set_highlights() end,
-    { desc = "highlights" })
+    vim.cmd([[ApplyColorscheme]])
+end, { desc = "apply color scheme" })
+vim.keymap.set({ "n", "v", "x" }, "<leader>hi", function()
+    require("core.highlights").set_highlights()
+end, { desc = "highlights" })

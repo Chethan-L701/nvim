@@ -57,8 +57,9 @@ return {
                 section_separators = { left = "", right = "" },
             },
             sections = {
+                --
                 lualine_a = {
-                    { "mode", icon = " " },
+                    { "mode", icon = " " },
                 },
                 lualine_x = {
                     {
