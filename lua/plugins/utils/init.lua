@@ -27,13 +27,14 @@ return {
         },
     },
     {
-        "tpope/vim-commentary",
-        lazy = true,
-        cmd = "Commentary",
+        'numToStr/Comment.nvim',
+        opts = {},
+        lazy = false,
         keys = {
             { "gcc", desc = "comment current line" },
-            { "gc",  desc = "comment the selected lines" },
+            { "gbc", desc = "comment the selected lines" },
         },
+
     },
     {
         "iamcco/markdown-preview.nvim",
