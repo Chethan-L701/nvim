@@ -115,6 +115,7 @@ return {
                     "clangd",
                     "--inlay-hints=true",
                     "--clang-tidy",
+                    "--std=c++2c"
                 },
             })
             -- Global mappings.

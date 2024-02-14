@@ -13,7 +13,7 @@ autocmd("VimLeavePre", {
 })
 
 ApplyColorscheme = function(scheme)
-    local cmd = "colorscheme " .. scheme;
+    local cmd = "colorscheme " .. scheme
     vim.cmd(cmd)
     local colors = {
         darkgray = "none",
@@ -34,6 +34,10 @@ ApplyColorscheme = function(scheme)
     vim.api.nvim_set_hl(0, "lualine_a_visual", { fg = colors.visual, bg = "none" })
     vim.api.nvim_set_hl(0, "lualine_a_replace", { fg = colors.replace, bg = "none" })
     vim.api.nvim_set_hl(0, "lualine_a_command", { fg = colors.command, bg = "none" })
+    vim.fn.sign_define("DiagnosticSignError", { text = " ", texthl = "DiagnosticSignError" })
+    vim.fn.sign_define("DiagnosticSignWarn", { text = " ", texthl = "DiagnosticSignWarn" })
+    vim.fn.sign_define("DiagnosticSignInfo", { text = " ", texthl = "DiagnosticSignInfo" })
+    vim.fn.sign_define("DiagnosticSignHint", { text = "󰌵", texthl = "DiagnosticSignHint" })
 end
 
 command("ApplyColorscheme", function()
@@ -46,7 +50,7 @@ end, {})
 
 autocmd("VimEnter", {
     pattern = "*",
-    command = "lua ApplyColorscheme('kanagawa')"
+    command = "lua ApplyColorscheme('kanagawa')",
 })
 
 command("LspFormat", function()

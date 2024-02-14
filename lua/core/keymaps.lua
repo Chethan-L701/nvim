@@ -27,3 +27,6 @@ end, { desc = "apply color scheme" })
 vim.keymap.set({ "n", "v", "x" }, "<leader>hi", function()
     require("core.highlights").set_highlights()
 end, { desc = "highlights" })
+
+vim.keymap.set("n", "+", "<cmd>redo<cr>")
+vim.keymap.set("n", "-", "<cmd>undo<cr>")
