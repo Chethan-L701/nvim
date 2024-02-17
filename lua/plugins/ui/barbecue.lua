@@ -35,7 +35,8 @@ local opts = {
     },
     theme = {
         dirname = { bold = true },
-        basename = { bold = true },
+        basename = { bold = true, italic = true },
+        context = { italic = true },
     },
 }
 return {
