@@ -43,14 +43,14 @@ end
 command("ApplyColorscheme", function()
     local scheme = vim.fn.input("ColorScheme : ", "")
     if scheme == "" then
-        scheme = "kanagawa"
+        scheme = "onedark"
     end
     ApplyColorscheme(scheme)
 end, {})
 
 autocmd("VimEnter", {
     pattern = "*",
-    command = "lua ApplyColorscheme('kanagawa')",
+    command = "lua ApplyColorscheme('onedark')",
 })
 
 command("LspFormat", function()

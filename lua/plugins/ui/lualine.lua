@@ -5,8 +5,6 @@ return {
         -- Lsp server name .
         require("lualine").setup({
             options = {
-                -- section_separators = { left = '▎', right = '▎' },
-                -- component_separators = { left = '▎', right = '▎' },
                 theme = function()
                     local colors = {
                         darkgray = "none",
@@ -53,13 +51,18 @@ return {
                         },
                     }
                 end,
-                component_separators = { left = "", right = "" },
-                section_separators = { left = "", right = "" },
+                component_separators = { left = "", right = "" },
+                section_separators = { left = "", right = "" },
             },
             sections = {
                 --
                 lualine_a = {
                     { "mode", icon = " " },
+                },
+                lualine_b = {
+                    "branch",
+                    { "diff", symbols = { added = " ", modified = " ", removed = " " } },
+                    { "diagnostics", symbols = { error = " ", warn = " ", info = " " } },
                 },
                 lualine_x = {
                     {
