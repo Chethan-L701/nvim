@@ -49,8 +49,8 @@ local opts = {
         },
     },
     source_selector = {
-        winbar = true, -- toggle to show selector on winbar
-        statusline = true, -- toggle to show selector on statusline
+        winbar = false, -- toggle to show selector on winbar
+        statusline = false, -- toggle to show selector on statusline
         show_scrolled_off_parent_node = false, -- boolean
         sources = { -- table
             {
