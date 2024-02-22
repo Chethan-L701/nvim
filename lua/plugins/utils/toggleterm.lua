@@ -3,10 +3,10 @@ return {
     version = "*",
     config = function()
         local Terminal = require("toggleterm.terminal").Terminal
-        local nu = Terminal:new({ cmd = "nu", hidden = true })
+        local pwsh = Terminal:new({ cmd = "pwsh", hidden = true })
 
-        function nu_term()
-            nu:toggle()
+        function pwsh_term()
+            pwsh:toggle()
         end
 
         require("toggleterm").setup()
@@ -18,7 +18,7 @@ return {
             "<C-\\>",
             function()
                 if vim.loop.os_uname().sysname == "Windows_NT" then
-                    nu_term()
+                    pwsh_term()
                 else
                     vim.cmd([[ToggleTerm direction=horizontal]])
                 end
@@ -29,7 +29,7 @@ return {
             "<C-\\>",
             function()
                 if vim.loop.os_uname().sysname == "Windows_NT" then
-                    nu_term()
+                    pwsh_term()
                 else
                     vim.cmd([[ToggleTerm direction=horizontal]])
                 end
