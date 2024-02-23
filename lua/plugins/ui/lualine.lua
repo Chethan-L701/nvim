@@ -60,6 +60,13 @@ return {
                     { "mode", icon = " " },
                 },
                 lualine_b = {
+                    {
+                        function()
+                            local dir = vim.fn.fnamemodify(vim.fn.getcwd(), ":t")
+                            return dir
+                        end,
+                        color = { bold = true }
+                    },
                     "branch",
                     { "diff", symbols = { added = " ", modified = " ", removed = " " } },
                     { "diagnostics", symbols = { error = " ", warn = " ", info = " " } },

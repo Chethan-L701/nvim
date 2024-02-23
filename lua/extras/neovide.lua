@@ -1,16 +1,15 @@
 print("loading the neovide configuration")
 vim.o.guifont = "CaskaydiaCove Nerd Font:h11"
-vim.g.neovide_transparency = 1
+vim.g.neovide_transparency = 0.80
 vim.g.neovide_floating_shadow = true
-vim.g.transparency = 1
+vim.g.transparency = 0.8
 -- vim.g.neovide_window_floating_opacity = 0.8
 vim.g.neovide_window_blurred = true
 vim.g.neovide_profiler = false
 -- onedark reskin
---
 require("onedark").setup({
     style = "deep",               -- Default theme style. Choose between 'dark', 'darker', 'cool', 'deep', 'warm', 'warmer' and 'light'
-    transparent = false,          -- Show/hide background
+    transparent = true,           -- Show/hide background
     term_colors = true,           -- Change terminal color as per the selected theme style
     ending_tildes = false,        -- Show the end-of-buffer tildes. By default they are hidden
     cmp_itemkind_reverse = false, -- reverse item kind highlights in cmp menu
@@ -50,7 +49,7 @@ local cmp = require("cmp")
 cmp.setup({
     window = {
         completion = nil,
-        documentation = nil
-    }
+        documentation = nil,
+    },
 })
 ApplyColorscheme("onedark")

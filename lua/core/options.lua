@@ -28,3 +28,4 @@ if vim.loop.os_uname().sysname == "Windows_NT" then
 else
     vim.o.undodir = "~/.nvim/undotree/"
 end
+vim.o.updatetime = 50
