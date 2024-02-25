@@ -1,12 +1,13 @@
 print("loading the neovide configuration")
 vim.o.guifont = "CaskaydiaCove Nerd Font:h11"
-vim.g.neovide_transparency = 0.80
+vim.g.neovide_transparency = 0.8
 vim.g.neovide_floating_shadow = true
-vim.g.transparency = 0.8
+vim.g.transparency = 0
 -- vim.g.neovide_window_floating_opacity = 0.8
 vim.g.neovide_window_blurred = true
 vim.g.neovide_profiler = false
 -- onedark reskin
+
 require("onedark").setup({
     style = "deep",               -- Default theme style. Choose between 'dark', 'darker', 'cool', 'deep', 'warm', 'warmer' and 'light'
     transparent = true,           -- Show/hide background
@@ -45,6 +46,7 @@ require("onedark").setup({
         background = false, -- use background color for virtual text
     },
 })
+
 local cmp = require("cmp")
 cmp.setup({
     window = {
@@ -52,4 +54,33 @@ cmp.setup({
         documentation = nil,
     },
 })
+
 ApplyColorscheme("onedark")
+
+vim.g.onedark_t = true
+vim.keymap.set("n", "<leader>to", function()
+    vim.g.onedark_t = not vim.g.onedark_t
+    print("setting onedark theme to transparent : " .. tostring(vim.g.onedark_t))
+    require("onedark").setup({
+        transparent = vim.g.onedark_t,
+    })
+    ApplyColorscheme("onedark")
+end, { desc = "toogle onedark transparency" })
+
+vim.api.nvim_create_user_command("Profiler", function()
+    vim.g.neovide_profiler = not vim.g.neovide_profiler
+end, {})
+
+vim.keymap.set("n", "<leader>nn", function()
+    vim.g.neovide_transparency = vim.g.neovide_transparency + 0.1
+    if vim.g.neovide_transparency > 1 then
+        vim.g.neovide_transparency = 1
+    end
+end, { desc = "reduce transparency for neovide" })
+
+vim.keymap.set("n", "<leader>mm", function()
+    vim.g.neovide_transparency = vim.g.neovide_transparency - 0.1
+    if vim.g.neovide_transparency < 0 then
+        vim.g.neovide_transparency = 0
+    end
+end, { desc = "increase transparency for neovide" })
