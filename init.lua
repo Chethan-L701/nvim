@@ -1,6 +1,4 @@
-require("core.options")
-require("core.keymaps")
-require("core.autocmds")
+require("core")
 require("plugins.lazy")
 if vim.g.neovide then
     require("extras.neovide")
