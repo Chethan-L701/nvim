@@ -108,6 +108,7 @@ return {
             lspconfig.cssls.setup({})
             -- lspconfig.pylyzer.setup({})
             lspconfig.pyright.setup({})
+            lspconfig.cmake.setup({})
             lspconfig.emmet_ls.setup({})
             lspconfig.jsonls.setup({})
             lspconfig.clangd.setup({
@@ -115,14 +116,18 @@ return {
                     "clangd",
                     "--inlay-hints=true",
                     "--clang-tidy",
-                    "--std=c++2c"
+                    "--std=c++2c",
                 },
             })
             -- Global mappings.
             -- See `:help vim.diagnostic.*` for documentation on any of the below functions
             vim.keymap.set("n", "<space>e", vim.diagnostic.open_float, { desc = "Open diagnostic Float" })
-            vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, { desc = "Goto Previous Error" })
-            vim.keymap.set("n", "]d", vim.diagnostic.goto_next, { desc = "Goto Next Error" })
+            vim.keymap.set("n", "[d", function()
+                vim.diagnostic.jump({ count = -1 })
+            end, { desc = "Goto Previous Error" })
+            vim.keymap.set("n", "]d", function()
+                vim.diagnostic.jump({ count = 1 })
+            end, { desc = "Goto Next Error" })
             vim.keymap.set("n", "<space>q", vim.diagnostic.setloclist, { desc = "Set Loclist" })
 
             -- Use LspAttach autocommand to only map the following keys

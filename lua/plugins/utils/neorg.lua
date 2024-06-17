@@ -15,7 +15,7 @@ local opts = {
 return {
     "nvim-neorg/neorg",
     ft = "norg",
-    dependencies = { "nvim-lua/plenary.nvim" },
+    dependencies = { "nvim-lua/plenary.nvim", "vhyrro/luarocks.nvim" },
     lazy = true,
     config = function()
         require("neorg").setup(opts)

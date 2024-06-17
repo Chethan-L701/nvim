@@ -9,24 +9,24 @@ return {
     lazy = true,
     config = true,
     keys = {
-        { "<leader>xx", "<cmd>TroubleToggle<cr>",          desc = "Toggle Trouble" },
+        { "<leader>xx", "<cmd>Trouble lsp toggle<cr>",      desc = "Toggle Trouble" },
         {
             "<leader>xw",
-            "<cmd>TroubleToggle workspace_diagnostics<cr>",
-            desc = "Toggle Workspace Diagnostics",
+            "<cmd>Trouble lsp_defination toggle<cr>",
+            desc = "Toggle LSP defination",
         },
         {
             "<leader>xd",
-            "<cmd>TroubleToggle document_diagnostics<cr>",
+            "<cmd>Trouble diagnostics toggle<cr>",
             desc = "Toggle Document Diagnostics",
         },
-        { "<leader>xl", "<cmd>TroubleToggle loclist<cr>",  desc = "Toggle Location List" },
-        { "<leader>xq", "<cmd>TroubleToggle quickfix<cr>", desc = "Toggle Quickfix" },
+        { "<leader>xl", "<cmd>Trouble loclist toggle<cr>",  desc = "Toggle Location List" },
+        { "<leader>xq", "<cmd>Trouble quickfix toggle<cr>", desc = "Toggle Quickfix" },
         {
             "<leader>xr",
-            "<cmd>TroubleToggle lsp_references<cr>",
+            "<cmd>Trouble lsp_references toggle<cr>",
             desc = "Toggle Trouble Lsp Refereeences",
         },
     },
-    cmd = "TroubleToggle",
+    cmd = "Trouble",
 }
