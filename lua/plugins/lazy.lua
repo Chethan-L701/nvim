@@ -20,7 +20,7 @@ require("lazy").setup({
 }, {
     install = {
         missing = true,
-        colorscheme = { "onedark" },
+        colorscheme = { "rose-pine" },
     },
     ui = {
         border = "double",

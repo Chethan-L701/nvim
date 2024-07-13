@@ -3,7 +3,7 @@ return {
     version = "*",
     config = function()
         local Terminal = require("toggleterm.terminal").Terminal
-        local pwsh = Terminal:new({ cmd = "pwsh", hidden = true })
+        local pwsh = Terminal:new({ cmd = "nu", hidden = true })
 
         function pwsh_term()
             pwsh:toggle()

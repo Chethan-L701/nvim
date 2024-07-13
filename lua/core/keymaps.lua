@@ -12,7 +12,7 @@ vim.keymap.set("n", "<Esc>", "<cmd>noh<CR>")
 vim.keymap.set({ "n", "v" }, "<leader>y", '"+y', { desc = "copy to system clipboard" })
 vim.keymap.set({ "n", "v" }, "<leader>yy", '0v$"+y$', { desc = "copy entire line to system clipboard" })
 vim.keymap.set({ "n", "v", "x" }, "<leader>li", function()
-    vim.lsp.inlay_hint.enable(0, not vim.lsp.inlay_hint.is_enabled())
+    vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
 end, { desc = "toggle inlay hints" })
 vim.keymap.set("v", "<M-j>", ":m '>+1<CR>gv=gv") -- Shift visual selected line down
 vim.keymap.set("v", "<M-k>", ":m '<-2<CR>gv=gv") -- Shift visual selected line up

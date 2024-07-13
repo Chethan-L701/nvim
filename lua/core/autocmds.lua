@@ -20,20 +20,15 @@ ApplyColorscheme = function(scheme)
         text0 = "#bbbbff",
         innerbg = nil,
         outerbg = "none",
-        normal = "#7198fa",
-        insert = "#aaffaa",
-        visual = "#8888ff",
-        replace = "#e46876",
-        command = "#ddcc88",
         text = "#212121",
     }
     vim.api.nvim_set_hl(0, "CmpItemMenu", { bg = "none" })
     vim.api.nvim_set_hl(0, "FloatBorder", { link = "Normal" })
-    vim.api.nvim_set_hl(0, "lualine_a_insert", { fg = colors.insert, bg = "none" })
-    vim.api.nvim_set_hl(0, "lualine_a_normal", { fg = colors.normal, bg = "none" })
-    vim.api.nvim_set_hl(0, "lualine_a_visual", { fg = colors.visual, bg = "none" })
-    vim.api.nvim_set_hl(0, "lualine_a_replace", { fg = colors.replace, bg = "none" })
-    vim.api.nvim_set_hl(0, "lualine_a_command", { fg = colors.command, bg = "none" })
+    vim.api.nvim_set_hl(0, "lualine_a_normal", { link = "LuaLineNormal" })
+    vim.api.nvim_set_hl(0, "lualine_a_insert", { link = "LuaLineInsert" })
+    vim.api.nvim_set_hl(0, "lualine_a_visual", { link = "LuaLineVisual" })
+    vim.api.nvim_set_hl(0, "lualine_a_replace", { link = "LuaLineReplace" })
+    vim.api.nvim_set_hl(0, "lualine_a_command", { link = "LuaLineCommand" })
     vim.fn.sign_define("DiagnosticSignError", { text = " ", texthl = "DiagnosticSignError" })
     vim.fn.sign_define("DiagnosticSignWarn", { text = " ", texthl = "DiagnosticSignWarn" })
     vim.fn.sign_define("DiagnosticSignInfo", { text = " ", texthl = "DiagnosticSignInfo" })
@@ -43,14 +38,14 @@ end
 command("ApplyColorscheme", function()
     local scheme = vim.fn.input("ColorScheme : ", "")
     if scheme == "" then
-        scheme = "onedark"
+        scheme = "rose-pine"
     end
     ApplyColorscheme(scheme)
 end, {})
 
 autocmd("VimEnter", {
     pattern = "*",
-    command = "lua ApplyColorscheme('onedark')",
+    command = "lua ApplyColorscheme('rose-pine')",
 })
 
 command("LspFormat", function()

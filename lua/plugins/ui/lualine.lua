@@ -20,34 +20,34 @@ return {
                     }
                     return {
                         inactive = {
-                            a = { fg = colors.text, bg = colors.outerbg, gui = "bold" },
-                            b = { fg = colors.text0, bg = colors.outerbg },
-                            c = { fg = colors.text0, bg = colors.innerbg },
+                            a = { bg = colors.outerbg, gui = "bold" },
+                            b = { bg = colors.outerbg },
+                            c = { bg = colors.innerbg },
                         },
                         visual = {
-                            a = { fg = colors.text, bg = colors.visual, gui = "bold" },
-                            b = { fg = colors.text0, bg = colors.outerbg },
-                            c = { fg = colors.text0, bg = colors.innerbg },
+                            a = { bg = colors.visual, gui = "bold" },
+                            b = { bg = colors.outerbg },
+                            c = { bg = colors.innerbg },
                         },
                         replace = {
-                            a = { fg = colors.text, bg = colors.replace, gui = "bold" },
-                            b = { fg = colors.text0, bg = colors.outerbg },
-                            c = { fg = colors.text0, bg = colors.innerbg },
+                            a = { bg = colors.replace, gui = "bold" },
+                            b = { bg = colors.outerbg },
+                            c = { bg = colors.innerbg },
                         },
                         normal = {
-                            a = { fg = colors.text, bg = colors.normal, gui = "bold" },
-                            b = { fg = colors.text0, bg = colors.outerbg },
-                            c = { fg = colors.text0, bg = colors.innerbg },
+                            a = { bg = colors.normal, gui = "bold" },
+                            b = { bg = colors.outerbg },
+                            c = { bg = colors.innerbg },
                         },
                         insert = {
-                            a = { fg = colors.text, bg = colors.insert, gui = "bold" },
-                            b = { fg = colors.text0, bg = colors.outerbg },
-                            c = { fg = colors.text0, bg = colors.innerbg },
+                            a = { bg = colors.insert, gui = "bold" },
+                            b = { bg = colors.outerbg },
+                            c = { bg = colors.innerbg },
                         },
                         command = {
-                            a = { fg = colors.text, bg = colors.command, gui = "bold" },
-                            b = { fg = colors.text0, bg = colors.outerbg },
-                            c = { fg = colors.text0, bg = colors.innerbg },
+                            a = { bg = colors.command, gui = "bold" },
+                            b = { bg = colors.outerbg },
+                            c = { bg = colors.innerbg },
                         },
                     }
                 end,

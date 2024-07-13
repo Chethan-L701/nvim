@@ -12,7 +12,7 @@ return {
         { "<leader>xx", "<cmd>Trouble lsp toggle<cr>",      desc = "Toggle Trouble" },
         {
             "<leader>xw",
-            "<cmd>Trouble lsp_defination toggle<cr>",
+            "<cmd>Trouble lsp_definations toggle<cr>",
             desc = "Toggle LSP defination",
         },
         {
