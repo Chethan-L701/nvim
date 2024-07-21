@@ -1,5 +1,6 @@
 return {
     "folke/which-key.nvim",
+    dependencies = { "https://github.com/echasnovski/mini.icons.git" },
     config = function()
         local wk = require("which-key")
         wk.setup({})

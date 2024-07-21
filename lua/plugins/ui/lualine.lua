@@ -3,21 +3,21 @@ return {
     dependencies = { "nvim-tree/nvim-web-devicons", opt = true },
     config = function()
         -- Lsp server name .
+        local colors = {
+            darkgray = "none",
+            text0 = "#bbbbff",
+            innerbg = nil,
+            outerbg = "none",
+            normal = "#7198fa",
+            insert = "#aaffaa",
+            visual = "#8888ff",
+            replace = "#e46876",
+            command = "#ddcc88",
+            text = "#212121",
+        }
         require("lualine").setup({
             options = {
                 theme = function()
-                    local colors = {
-                        darkgray = "none",
-                        text0 = "#bbbbff",
-                        innerbg = nil,
-                        outerbg = "none",
-                        normal = "#7198fa",
-                        insert = "#aaffaa",
-                        visual = "#8888ff",
-                        replace = "#e46876",
-                        command = "#ddcc88",
-                        text = "#212121",
-                    }
                     return {
                         inactive = {
                             a = { bg = colors.outerbg, gui = "bold" },
@@ -67,32 +67,12 @@ return {
                         end,
                         color = { bold = true }
                     },
-                    "branch",
+                    { "branch", fg = { colors.visual } },
                     { "diff", symbols = { added = " ", modified = " ", removed = " " } },
                     { "diagnostics", symbols = { error = " ", warn = " ", info = " " } },
                 },
                 lualine_x = {
-                    {
-                        function()
-                            local msg = ""
-                            local buf_ft = vim.api.nvim_get_option_value(0, { "filetype" })
-                            local clients = vim.lsp.get_clients()
-                            if next(clients) == nil then
-                                return msg
-                            end
-                            for _, client in ipairs(clients) do
-                                local filetypes = client.config.filetypes
-                                if filetypes and vim.fn.index(filetypes, buf_ft) ~= -1 then
-                                    return client.name
-                                end
-                            end
-                            return msg
-                        end,
-                        icon = " ",
-                        on_click = function()
-                            vim.cmd([[LspInfo]])
-                        end,
-                    },
+
                     { "encoding" },
                     {
                         "fileformat",
@@ -108,6 +88,27 @@ return {
                     "filetype",
                 },
                 lualine_z = {
+                    -- {
+                    --     function()
+                    --         local msg = ""
+                    --         local buf_ft = vim.api.nvim_get_option_value(0, { "filetype" })
+                    --         local clients = vim.lsp.get_clients()
+                    --         if next(clients) == nil then
+                    --             return msg
+                    --         end
+                    --         for _, client in ipairs(clients) do
+                    --             local filetypes = client.config.filetypes
+                    --             if filetypes and vim.fn.index(filetypes, buf_ft) ~= -1 then
+                    --                 return client.name
+                    --             end
+                    --         end
+                    --         return msg
+                    --     end,
+                    --     icon = " ",
+                    --     on_click = function()
+                    --         vim.cmd([[LspInfo]])
+                    --     end,
+                    -- },
                     "location",
                     "os.date('%a %H:%M:%S')",
                     {

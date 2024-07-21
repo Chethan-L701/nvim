@@ -54,7 +54,7 @@ return {
             highlight_groups = {
                 -- Comment = { fg = "foam" },
                 -- VertSplit = { fg = "muted", bg = "muted" },
-                LuaLineNormal = { fg = "form", bg = "none" },
+                LuaLineNormal = { fg = "love", bg = "none" },
                 LuaLineVisual = { fg = "iris", bg = "none" },
                 LuaLineReplace = { fg = "rose", bg = "none" },
                 LuaLineInsert = { fg = "pine", bg = "none" },
@@ -73,10 +73,6 @@ return {
                 -- end
             end,
         })
-
         vim.cmd("colorscheme rose-pine")
-        -- vim.cmd("colorscheme rose-pine-main")
-        -- vim.cmd("colorscheme rose-pine-moon")
-        -- vim.cmd("colorscheme rose-pine-dawn")
     end
 }
