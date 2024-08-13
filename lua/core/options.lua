@@ -21,6 +21,7 @@ vim.o.foldlevelstart = 100
 vim.o.foldenable = true
 vim.o.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
 vim.o.foldnestmax = 0
+vim.o.guicursor = [[i-ci:hor15]]
 
 vim.o.undofile = true
 if vim.loop.os_uname().sysname == "Windows_NT" then
