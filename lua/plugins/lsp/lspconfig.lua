@@ -27,6 +27,7 @@ return {
             require("mason-lspconfig").setup()
             local vim = vim
             local lspconfig = require("lspconfig")
+            local util = require("lspconfig.util")
 
             require("lspconfig").lua_ls.setup({
                 on_init = function(client)
@@ -117,7 +118,11 @@ return {
                     "--inlay-hints=true",
                     "--clang-tidy",
                     "--std=c++2c",
+                    "--cuda-path=C:\\Program Files\\NVIDIA GPU Computing Toolkit\\CUDA\\v12.6"
                 },
+            })
+            lspconfig.zls.setup({
+                root_dir = util.root_pattern("zls.json", "build.zig", ".git")
             })
             -- Global mappings.
             -- See `:help vim.diagnostic.*` for documentation on any of the below functions

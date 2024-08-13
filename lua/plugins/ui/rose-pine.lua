@@ -59,6 +59,7 @@ return {
                 LuaLineReplace = { fg = "rose", bg = "none" },
                 LuaLineInsert = { fg = "pine", bg = "none" },
                 LuaLineCommand = { fg = "gold", bg = "none" },
+                MarkviewCode = { bg = "none" }
             },
 
             before_highlight = function(group, highlight, palette)

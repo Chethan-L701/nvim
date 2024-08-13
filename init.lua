@@ -1,3 +1,4 @@
+defscheme = "rose-pine"
 require("core")
 require("plugins.lazy")
 if vim.g.neovide then

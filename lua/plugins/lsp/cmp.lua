@@ -69,6 +69,7 @@ return {
                     vim_item.kind = string.format("▎ %s", kind_icons[vim_item.kind])
                     -- Source
                     vim_item.menu = ({
+                        cody = " -> cody",
                         buffer = " -> buffer",
                         nvim_lsp = " -> lsp",
                         luasnip = " -> snip",
@@ -124,6 +125,7 @@ return {
             },
 
             sources = cmp.config.sources({
+                { name = "cody" },
                 { name = "nvim_lsp" },
                 { name = "path" },
                 { name = "nvim_lsp_signature_help" },

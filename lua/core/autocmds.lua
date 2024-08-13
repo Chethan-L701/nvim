@@ -12,16 +12,10 @@ autocmd("VimLeavePre", {
     command = "QuitNvim",
 })
 
+
 ApplyColorscheme = function(scheme)
     local cmd = "colorscheme " .. scheme
     vim.cmd(cmd)
-    local colors = {
-        darkgray = "none",
-        text0 = "#bbbbff",
-        innerbg = nil,
-        outerbg = "none",
-        text = "#212121",
-    }
     vim.api.nvim_set_hl(0, "CmpItemMenu", { bg = "none" })
     vim.api.nvim_set_hl(0, "FloatBorder", { link = "Normal" })
     vim.api.nvim_set_hl(0, "lualine_a_normal", { link = "LuaLineNormal" })
@@ -29,24 +23,17 @@ ApplyColorscheme = function(scheme)
     vim.api.nvim_set_hl(0, "lualine_a_visual", { link = "LuaLineVisual" })
     vim.api.nvim_set_hl(0, "lualine_a_replace", { link = "LuaLineReplace" })
     vim.api.nvim_set_hl(0, "lualine_a_command", { link = "LuaLineCommand" })
-    vim.fn.sign_define("DiagnosticSignError", { text = " ", texthl = "DiagnosticSignError" })
-    vim.fn.sign_define("DiagnosticSignWarn", { text = " ", texthl = "DiagnosticSignWarn" })
-    vim.fn.sign_define("DiagnosticSignInfo", { text = " ", texthl = "DiagnosticSignInfo" })
-    vim.fn.sign_define("DiagnosticSignHint", { text = "󰌵", texthl = "DiagnosticSignHint" })
 end
 
 command("ApplyColorscheme", function()
     local scheme = vim.fn.input("ColorScheme : ", "")
     if scheme == "" then
-        scheme = "rose-pine"
+        scheme = defscheme
+    else
+        defscheme = scheme
     end
     ApplyColorscheme(scheme)
 end, {})
-
-autocmd("VimEnter", {
-    pattern = "*",
-    command = "lua ApplyColorscheme('rose-pine')",
-})
 
 command("LspFormat", function()
     vim.lsp.buf.format()
@@ -58,5 +45,5 @@ autocmd("BufWrite", {
 })
 
 command("LoadAllColorSchemes", function()
-    vim.cmd([[Lazy load catppuccin kanagawa.nvim onedark.nvim tokyonight.nvim]])
+    vim.cmd([[Lazy load catppuccin kanagawa.nvim onedark.nvim tokyonight.nvim rose-pine]])
 end, {})

@@ -26,6 +26,6 @@ vim.o.undofile = true
 if vim.loop.os_uname().sysname == "Windows_NT" then
     vim.o.undodir = "C:\\Users\\Cheth\\AppData\\Local\\nvim-data\\undotree\\"
 else
-    vim.o.undodir = "~/.nvim/undotree/"
+    vim.o.undodir = ".nvim/undotree/"
 end
 vim.o.updatetime = 50
