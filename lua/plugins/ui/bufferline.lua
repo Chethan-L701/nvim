@@ -63,5 +63,5 @@ return {
         { "<M-8>",       "<cmd>BufferLineGoToBuffer 8<cr>",    desc = "Buffer 8" },
         { "<M-9>",       "<cmd>BufferLineGoToBuffer 10<cr>",   desc = "Buffer 9" },
     },
-    lazy = false,
+    lazy = true,
 }

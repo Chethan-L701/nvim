@@ -109,6 +109,7 @@ return {
             lspconfig.cssls.setup({})
             -- lspconfig.pylyzer.setup({})
             lspconfig.pyright.setup({})
+            lspconfig.ols.setup({})
             lspconfig.cmake.setup({})
             lspconfig.emmet_ls.setup({})
             lspconfig.jsonls.setup({})

@@ -31,7 +31,7 @@ local opts = {
     },
     attach_navic = true,
     symbols = {
-        separator = "",
+        separator = "",
     },
     theme = {
         dirname = { bold = true },

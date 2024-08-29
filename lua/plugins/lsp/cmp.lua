@@ -177,6 +177,8 @@ return {
             "pyright",
             "rust_analyzer",
             "lua_ls",
+            "ols",
+            "zls"
         }
         local handler = {
             ["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {}),

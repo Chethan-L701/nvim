@@ -1,10 +1,19 @@
+--- @return string
+local function variant()
+    if tonumber(os.date("%H")) > 8 and tonumber(os.date("%H")) < 18 then
+        return "dawn"
+    else
+        return "moon"
+    end
+end
+
 return {
     "rose-pine/neovim",
     name = "rose-pine",
     config = function()
         require("rose-pine").setup({
-            variant = "auto",      -- auto, main, moon, or dawn
-            dark_variant = "main", -- main, moon, or dawn
+            variant = variant(),   -- auto, main, moon, or dawn
+            dark_variant = "moon", -- main, moon, or dawn
             dim_inactive_windows = false,
             extend_background_behind_borders = true,
 
@@ -59,7 +68,8 @@ return {
                 LuaLineReplace = { fg = "rose", bg = "none" },
                 LuaLineInsert = { fg = "pine", bg = "none" },
                 LuaLineCommand = { fg = "gold", bg = "none" },
-                MarkviewCode = { bg = "none" }
+                MarkviewCode = { bg = "none" },
+                RenderMarkdownCode = { bg = "none" }
             },
 
             before_highlight = function(group, highlight, palette)

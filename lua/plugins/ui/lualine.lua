@@ -25,39 +25,40 @@ return {
                             c = { bg = colors.innerbg },
                         },
                         visual = {
-                            a = { bg = colors.visual, gui = "bold" },
+                            a = { fg = colors.visual, gui = "bold" },
                             b = { bg = colors.outerbg },
                             c = { bg = colors.innerbg },
                         },
                         replace = {
-                            a = { bg = colors.replace, gui = "bold" },
+                            a = { fg = colors.replace, gui = "bold" },
                             b = { bg = colors.outerbg },
                             c = { bg = colors.innerbg },
                         },
                         normal = {
-                            a = { bg = colors.normal, gui = "bold" },
+                            a = { fg = colors.normal, gui = "bold" },
                             b = { bg = colors.outerbg },
                             c = { bg = colors.innerbg },
                         },
                         insert = {
-                            a = { bg = colors.insert, gui = "bold" },
+                            a = { fg = colors.insert, gui = "bold" },
                             b = { bg = colors.outerbg },
                             c = { bg = colors.innerbg },
                         },
                         command = {
-                            a = { bg = colors.command, gui = "bold" },
-                            b = { bg = colors.outerbg },
+                            a = { fg = colors.command, gui = "bold" },
+                            b = { bg = colors.outerbg, fg = "#aaaadd" },
                             c = { bg = colors.innerbg },
                         },
                     }
                 end,
-                component_separators = { left = "", right = "" },
+                -- section_separators = { left = "", right = "" },
+                component_separators = { left = "", right = "" },
                 section_separators = { left = "", right = "" },
             },
             sections = {
                 --
                 lualine_a = {
-                    { "mode", icon = " " },
+                    { "mode", icon = "" },
                 },
                 lualine_b = {
                     {
@@ -67,7 +68,7 @@ return {
                         end,
                         color = { bold = true }
                     },
-                    { "branch", fg = { colors.visual } },
+                    { "branch", color = { fg = "#ff7788" } },
                     { "diff", symbols = { added = " ", modified = " ", removed = " " } },
                     { "diagnostics", symbols = { error = " ", warn = " ", info = " " } },
                 },
@@ -83,29 +84,16 @@ return {
                             for _, client in ipairs(clients) do
                                 local filetypes = client.config.filetypes
                                 if filetypes and vim.fn.index(filetypes, buf_ft) ~= -1 then
-                                    return "LSP[" .. client.name .. "]"
+                                    return client.name
                                 end
                             end
                             return msg
                         end,
-                        fg = colors.visual,
                         icon = " ",
                         on_click = function()
                             vim.cmd([[LspInfo]])
                         end,
                     },
-                    { "encoding" },
-                    {
-                        "fileformat",
-                        on_click = function()
-                            if vim.o.fileformat == "dos" then
-                                vim.cmd([[set fileformat=unix]])
-                            else
-                                vim.cmd([[set fileformat=dos]])
-                            end
-                        end,
-                    },
-
                     "filetype",
                 },
                 lualine_z = {

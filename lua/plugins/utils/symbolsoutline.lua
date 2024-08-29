@@ -35,7 +35,7 @@ local opts = {
         Module = { icon = "", hl = "@namespace" },
         Namespace = { icon = "", hl = "@namespace" },
         Package = { icon = "", hl = "@namespace" },
-        Class = { icon = "𝓒", hl = "@type" },
+        Class = { icon = " ", hl = "@type" },
         Method = { icon = "ƒ", hl = "@method" },
         Property = { icon = "", hl = "@method" },
         Field = { icon = "", hl = "@field" },

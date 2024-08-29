@@ -12,17 +12,14 @@ autocmd("VimLeavePre", {
     command = "QuitNvim",
 })
 
-
+--- @param scheme string
+--- @return nil
+--- this function is used to apply colorscheme and them overwrite some of the highlights
 ApplyColorscheme = function(scheme)
     local cmd = "colorscheme " .. scheme
     vim.cmd(cmd)
     vim.api.nvim_set_hl(0, "CmpItemMenu", { bg = "none" })
     vim.api.nvim_set_hl(0, "FloatBorder", { link = "Normal" })
-    vim.api.nvim_set_hl(0, "lualine_a_normal", { link = "LuaLineNormal" })
-    vim.api.nvim_set_hl(0, "lualine_a_insert", { link = "LuaLineInsert" })
-    vim.api.nvim_set_hl(0, "lualine_a_visual", { link = "LuaLineVisual" })
-    vim.api.nvim_set_hl(0, "lualine_a_replace", { link = "LuaLineReplace" })
-    vim.api.nvim_set_hl(0, "lualine_a_command", { link = "LuaLineCommand" })
 end
 
 command("ApplyColorscheme", function()

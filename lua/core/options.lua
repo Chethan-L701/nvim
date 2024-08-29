@@ -15,18 +15,20 @@ vim.opt.signcolumn = "yes"
 vim.opt.pumheight = 15
 
 vim.opt.termguicolors = true
-vim.o.foldcolumn = "0" -- '0' is not bad
-vim.o.foldlevel = 200  -- Using ufo provider need a large value, feel free to decrease the value
+vim.o.foldcolumn = "1" -- '0' is not bad
+vim.o.foldlevel = 100  -- Using ufo provider need a large value, feel free to decrease the value
 vim.o.foldlevelstart = 100
 vim.o.foldenable = true
-vim.o.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
+vim.o.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
 vim.o.foldnestmax = 0
 vim.o.guicursor = [[i-ci:hor15]]
 
 vim.o.undofile = true
+
 if vim.loop.os_uname().sysname == "Windows_NT" then
     vim.o.undodir = "C:\\Users\\Cheth\\AppData\\Local\\nvim-data\\undotree\\"
 else
-    vim.o.undodir = ".nvim/undotree/"
+    vim.o.undodir = vim.loop.os_homedir() .. "/.nvim/undotree/"
 end
+
 vim.o.updatetime = 50
