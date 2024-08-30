@@ -3,40 +3,44 @@ return {
     version = "*",
     config = function()
         local Terminal = require("toggleterm.terminal").Terminal
-        local pwsh = Terminal:new({ cmd = "nu", hidden = true })
+        local nu_float = Terminal:new({ cmd = "nu", hidden = true, direction = "float" })
+        local nu_hor = Terminal:new({ cmd = "nu", hidden = true, direction = "horizontal" })
 
-        function pwsh_term()
-            pwsh:toggle()
+        function nu_term_float()
+            nu_float:toggle()
+        end
+
+        function nu_term_hor()
+            nu_hor:toggle()
         end
 
         require("toggleterm").setup()
     end,
     lazy = true,
     keys = {
-
         {
-            "<C-\\>",
+            "<M-\\>",
             function()
                 if vim.loop.os_uname().sysname == "Windows_NT" then
-                    pwsh_term()
+                    nu_term_float()
                 else
-                    vim.cmd([[ToggleTerm direction=horizontal]])
+                    vim.cmd([[ToggleTerm direction=float]])
                 end
             end,
             desc = "horizontal Toggle Term",
+            mode = { "t", "n" }
         },
         {
             "<C-\\>",
             function()
                 if vim.loop.os_uname().sysname == "Windows_NT" then
-                    pwsh_term()
+                    nu_term_hor()
                 else
                     vim.cmd([[ToggleTerm direction=horizontal]])
                 end
             end,
             desc = "horizontal Toggle Term",
-            mode = "t"
+            mode = { "t", "n" }
         },
-        { "<M-\\>", "<Cmd>ToggleTerm direction=float<CR>", desc = "Float Toggle Term" },
     },
 }
