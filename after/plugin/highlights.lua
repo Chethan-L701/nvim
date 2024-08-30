@@ -1,7 +1,14 @@
+CurrentSchemeMode = ""
 set_mode = function()
     local rmode = io.open("/Users/Cheth/.config/wezterm/mode.txt", "r")
     if rmode then
         local scheme_mode = rmode:read("*a")
+        if CurrentSchemeMode == scheme_mode then
+            return
+        else
+            CurrentSchemeMode = scheme_mode
+        end
+
         if defscheme == "rose-pine" then
             if scheme_mode == 'dark' then
                 ApplyColorscheme("rose-pine-moon")
