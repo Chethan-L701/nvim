@@ -1,10 +1,34 @@
+set_mode = function()
+    local rmode = io.open("/Users/Cheth/.config/wezterm/mode.txt", "r")
+    if rmode then
+        local scheme_mode = rmode:read("*a")
+        if defscheme == "rose-pine" then
+            if scheme_mode == 'dark' then
+                ApplyColorscheme("rose-pine-moon")
+            else
+                ApplyColorscheme("rose-pine-dawn")
+            end
+        elseif defscheme == "catppuccin" then
+            if scheme_mode == 'dark' then
+                ApplyColorscheme("catppuccin")
+            else
+                ApplyColorscheme("catppuccin-latte")
+            end
+        elseif defscheme == "tokyonight" then
+            if scheme_mode == 'dark' then
+                ApplyColorscheme("tokyonight-storm")
+            else
+                ApplyColorscheme("tokyonight-day")
+            end
+        end
+    end
+end
+
+
+local rtheme = io.open("/Users/Cheth/.config/wezterm/theme.txt", "r")
+if rtheme then
+    defscheme = rtheme:read("a")
+end
+
+
 ApplyColorscheme(defscheme)
-
-vim.api.nvim_set_hl(0, "DiagnosticVirtualTextError", { link = "DiagnosticError" })
-vim.api.nvim_set_hl(0, "DiagnosticVirtualTextHint", { link = "DiagnosticHint" })
-vim.api.nvim_set_hl(0, "DiagnosticVirtualTextInfo", { link = "DiagnosticInfo" })
-vim.api.nvim_set_hl(0, "DiagnosticVirtualTextWarn", { link = "DiagnosticWarn" })
-vim.api.nvim_set_hl(0, "DiagnosticVirtualTextOk", { link = "DiagnosticOk" })
-
-vim.api.nvim_set_hl(0, "RenderMarkdownCode", { bg = nil })
-vim.api.nvim_set_hl(0, "@markup.raw.markdown_inline", { bg = nil })
