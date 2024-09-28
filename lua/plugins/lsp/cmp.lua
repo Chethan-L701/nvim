@@ -171,7 +171,7 @@ return {
             "jsonls",
             "cssls",
             "emmet_ls",
-            "tsserver",
+            "ts_ls",
             "gopls",
             "clangd",
             "pyright",
